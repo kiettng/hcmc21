@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cột Mốc 21KM — HCMC Marathon 2027</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#14171b;
+    --bg-card:#1c2025;
+    --bg-card-hover:#22262c;
+    --ink:#f0ede6;
+    --ink-dim:#9aa1a9;
+    --ink-faint:#5b6169;
+    --line:#2b3037;
+    --accent:#ff6a2b;
+    --accent-soft:rgba(255,106,43,0.14);
+    --base-c:#4c8dff;
+    --build-c:#34c77b;
+    --peak-c:#ff6a2b;
+    --taper-c:#f2c94c;
+    --race-c:#ff4d5e;
+    --supp-c:#b18cff;
+    --supp-soft:rgba(177,140,255,0.14);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  .display{font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.02em;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    padding:72px 24px 56px;
+    max-width:980px;
+    margin:0 auto;
+    border-bottom:1px solid var(--line);
+  }
+  .hero-eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    color:var(--accent);
+    font-size:13px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    margin-bottom:18px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .hero-eyebrow::before{
+    content:"";
+    width:28px;height:1px;background:var(--accent);
+  }
+  h1.hero-title{
+    font-family:'Oswald',sans-serif;
+    font-weight:700;
+    text-transform:uppercase;
+    font-size:clamp(40px,7vw,84px);
+    line-height:0.96;
+    letter-spacing:0.01em;
+    margin:0 0 20px;
+  }
+  h1.hero-title .accent{color:var(--accent);}
+  .hero-sub{
+    font-size:17px;
+    color:var(--ink-dim);
+    max-width:580px;
+    line-height:1.6;
+    margin-bottom:40px;
+  }
+  .stat-row{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  .stat{
+    background:var(--bg);
+    padding:18px 16px;
+  }
+  .stat-label{
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--ink-faint);
+    margin-bottom:8px;
+  }
+  .stat-value{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:clamp(18px,2.6vw,26px);
+    font-weight:600;
+  }
+  .stat-value.accent{color:var(--accent);}
+  @media (max-width:640px){
+    .stat-row{grid-template-columns:repeat(2,1fr);}
+  }
+
+  /* ---------- PHASE LEGEND / FILTER ---------- */
+  .filter-bar{
+    position:sticky;
+    top:0;
+    z-index:20;
+    background:rgba(20,23,27,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+    padding:14px 24px;
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+  .chip{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12.5px;
+    padding:8px 14px;
+    border-radius:100px;
+    border:1px solid var(--line);
+    background:transparent;
+    color:var(--ink-dim);
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    gap:7px;
+    transition:all .15s ease;
+  }
+  .chip:hover{border-color:var(--ink-faint);color:var(--ink);}
+  .chip.active{
+    background:var(--ink);
+    color:var(--bg);
+    border-color:var(--ink);
+  }
+  .dot{width:8px;height:8px;border-radius:50%;display:inline-block;}
+
+  /* ---------- ROUTE / TIMELINE ---------- */
+  .route-wrap{
+    max-width:900px;
+    margin:0 auto;
+    padding:56px 24px 100px;
+    position:relative;
+  }
+  .route-line{
+    position:absolute;
+    left:50%;
+    top:20px;
+    bottom:20px;
+    width:2px;
+    background:repeating-linear-gradient(
+      to bottom,
+      var(--line) 0px, var(--line) 6px, transparent 6px, transparent 14px
+    );
+    transform:translateX(-50%);
+  }
+  @media (max-width:720px){
+    .route-line{left:28px;}
+  }
+
+  .week-marker{
+    position:relative;
+    display:grid;
+    grid-template-columns:1fr 88px 1fr;
+    align-items:start;
+    margin-bottom:18px;
+  }
+  @media (max-width:720px){
+    .week-marker{grid-template-columns:56px 1fr;}
+  }
+  .marker-post{
+    grid-column:2;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding-top:6px;
+  }
+  @media (max-width:720px){ .marker-post{grid-column:1;} }
+  .marker-badge{
+    width:56px;height:56px;
+    border-radius:50%;
+    background:var(--bg-card);
+    border:2px solid var(--phase-color, var(--accent));
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'Oswald',sans-serif;
+    font-weight:600;
+    font-size:19px;
+    color:var(--phase-color, var(--accent));
+    z-index:2;
+    flex-shrink:0;
+  }
+  .marker-km{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10.5px;
+    color:var(--ink-faint);
+    margin-top:6px;
+    white-space:nowrap;
+  }
+
+  .card{
+    grid-column:1;
+    background:var(--bg-card);
+    border:1px solid var(--line);
+    border-left:3px solid var(--phase-color,var(--accent));
+    border-radius:6px;
+    padding:18px 20px;
+    cursor:pointer;
+    transition:background .15s ease, transform .15s ease;
+  }
+  .card:hover{background:var(--bg-card-hover);}
+  .week-marker:nth-child(odd) .card{grid-column:1;}
+  .week-marker:nth-child(even) .card{grid-column:3;}
+  @media (max-width:720px){
+    .week-marker:nth-child(odd) .card,
+    .week-marker:nth-child(even) .card{grid-column:2;}
+  }
+
+  .card-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:12px;
+    margin-bottom:10px;
+  }
+  .card-phase{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--phase-color,var(--accent));
+    margin-bottom:4px;
+  }
+  .card-dates{
+    font-size:13px;
+    color:var(--ink-dim);
+  }
+  .card-total{
+    text-align:right;
+    flex-shrink:0;
+  }
+  .card-total .num{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:22px;
+    font-weight:600;
+    color:var(--ink);
+  }
+  .card-total .unit{
+    font-size:10.5px;
+    color:var(--ink-faint);
+    text-transform:uppercase;
+  }
+  .card-sessions-preview{
+    font-size:12.5px;
+    color:var(--ink-faint);
+    display:flex;
+    gap:6px;
+    flex-wrap:wrap;
+  }
+  .tag{
+    background:var(--accent-soft);
+    color:var(--accent);
+    padding:2px 8px;
+    border-radius:100px;
+    font-size:11px;
+    font-family:'IBM Plex Mono',monospace;
+  }
+  .tag.supp{
+    background:var(--supp-soft);
+    color:var(--supp-c);
+  }
+
+  .card-detail{
+    display:none;
+    margin-top:14px;
+    padding-top:14px;
+    border-top:1px dashed var(--line);
+  }
+  .card.open .card-detail{display:block;}
+  .session-row{
+    display:grid;
+    grid-template-columns:56px 100px 1fr 56px;
+    gap:10px;
+    padding:9px 0;
+    border-bottom:1px solid var(--line);
+    font-size:13px;
+    align-items:start;
+  }
+  .session-row:last-child{border-bottom:none;}
+  .session-row.supp .s-type{color:var(--supp-c);}
+  .s-dow{font-family:'IBM Plex Mono',monospace;color:var(--ink-faint);font-size:11.5px;padding-top:2px;}
+  .s-type{
+    font-size:11px;
+    font-family:'IBM Plex Mono',monospace;
+    color:var(--phase-color,var(--accent));
+    padding-top:2px;
+  }
+  .s-desc{color:var(--ink-dim);line-height:1.5;}
+  .s-desc .pace{display:block;color:var(--ink-faint);font-size:11.5px;margin-top:2px;}
+  .s-km{
+    text-align:right;
+    font-family:'IBM Plex Mono',monospace;
+    font-weight:600;
+    padding-top:2px;
+  }
+  .s-km.dash{color:var(--ink-faint);font-weight:400;}
+
+  .card.race .card-total .num{color:var(--race-c);}
+  .card.race{border-left-color:var(--race-c);}
+
+  /* ---------- PACE ZONES ---------- */
+  .zones-section{
+    max-width:900px;
+    margin:0 auto;
+    padding:0 24px 40px;
+  }
+  .section-label{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin-bottom:10px;
+  }
+  .section-title{
+    font-family:'Oswald',sans-serif;
+    text-transform:uppercase;
+    font-size:28px;
+    margin:0 0 24px;
+  }
+  .zone-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  .zone-cell{
+    background:var(--bg-card);
+    padding:20px;
+  }
+  .zone-name{font-family:'Oswald',sans-serif;text-transform:uppercase;font-size:15px;margin-bottom:6px;}
+  .zone-pace{font-family:'IBM Plex Mono',monospace;color:var(--accent);font-size:19px;margin-bottom:8px;}
+  .zone-desc{font-size:12.5px;color:var(--ink-dim);line-height:1.5;}
+
+  /* ---------- SUPPLEMENTARY NOTE ---------- */
+  .supp-note{
+    max-width:900px;
+    margin:0 auto;
+    padding:0 24px 80px;
+  }
+  .supp-note .box{
+    border:1px solid var(--line);
+    border-left:3px solid var(--supp-c);
+    border-radius:6px;
+    background:var(--bg-card);
+    padding:20px 22px;
+    font-size:13px;
+    color:var(--ink-dim);
+    line-height:1.7;
+  }
+  .supp-note .box b{color:var(--ink);}
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    text-align:center;
+    padding:40px 24px 60px;
+    color:var(--ink-faint);
+    font-size:12.5px;
+    border-top:1px solid var(--line);
+  }
+  footer .bib{
+    display:inline-block;
+    font-family:'Oswald',sans-serif;
+    font-size:13px;
+    letter-spacing:0.08em;
+    color:var(--ink-dim);
+    border:1px solid var(--line);
+    padding:6px 16px;
+    border-radius:4px;
+    margin-bottom:14px;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{transition:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-eyebrow">Kế hoạch tập luyện &middot; 10/08/2026 &rarr; 17/01/2027</div>
+  <h1 class="hero-title">896km<br>để chạm<br><span class="accent">vạch đích 21km</span></h1>
+  <p class="hero-sub">23 tuần, 4 giai đoạn, chạy + bổ trợ sức mạnh &mdash; từ nền tảng 10km/1h08 hiện tại đến vạch đích HCMC Marathon 2027. Mỗi tuần là một cột mốc trên con đường đó.</p>
+  <div class="stat-row">
+    <div class="stat">
+      <div class="stat-label">Xuất phát</div>
+      <div class="stat-value">10.08.2026</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Race day</div>
+      <div class="stat-value accent">17.01.2027</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">PR 10K hiện tại</div>
+      <div class="stat-value">1:08:00</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Mục tiêu 21K</div>
+      <div class="stat-value accent">~2:15&ndash;2:20</div>
+    </div>
+  </div>
+</section>
+
+<div class="filter-bar" id="filterBar"></div>
+
+<div class="route-wrap">
+  <div class="route-line"></div>
+  <div id="timeline"></div>
+</div>
+
+<section class="zones-section">
+  <div class="section-label">Tham chiếu</div>
+  <h2 class="section-title">Vùng pace</h2>
+  <div class="zone-grid" id="zoneGrid"></div>
+</section>
+
+<section class="supp-note">
+  <div class="section-label">Lưu ý</div>
+  <h2 class="section-title">Bổ trợ sức mạnh</h2>
+  <div class="box">
+    <b>34 buổi bổ trợ</b> được xen vào các ngày nghỉ chạy trong suốt chương trình &mdash; đánh dấu bằng tag màu tím trong mỗi thẻ tuần. Base/Build: 2 buổi/tuần (sức mạnh nền tảng &rarr; sức mạnh & ổn định). Peak: 1 buổi/tuần (duy trì + drill chạy). Taper: mobility nhẹ, dừng hẳn ở tuần thi đấu. Cách nhau tối thiểu 48h với buổi chạy nặng (interval/tempo/long run) để không ảnh hưởng hồi phục.
+  </div>
+</section>
+
+<footer>
+  <div class="bib">HCMC MARATHON 2027 &middot; BIB 21K</div>
+  <div>Kế hoạch mang tính tham khảo &mdash; điều chỉnh theo cảm giác cơ thể, thời tiết và giấc ngủ mỗi tuần.</div>
+</footer>
+
+<script>
+const DATA = {"rows": [{"week": 1, "date": "10/08/2026", "dow": "T2", "phase": "Base", "loai": "Bổ trợ A", "mota": "Squat bodyweight 3x12 • Glute bridge 3x15 • Plank 3x30-45s • Clamshell 2x15/bên • Calf raise 3x15", "km": 0, "pace": "~25-30 phút"}, {"week": 1, "date": "11/08/2026", "dow": "T3", "phase": "Base", "loai": "Easy", "mota": "Chạy nhẹ nhàng, giữ nhịp thở đều", "km": 5, "pace": "7:00-7:30/km"}, {"week": 1, "date": "13/08/2026", "dow": "T5", "phase": "Base", "loai": "Fartlek", "mota": "Khởi động 2km + 4x(2' nhanh/2' chậm) + thả lỏng 1km", "km": 6, "pace": "Biến tốc"}, {"week": 1, "date": "14/08/2026", "dow": "T6", "phase": "Base", "loai": "Bổ trợ B", "mota": "Romanian Deadlift (tạ nhẹ) 3x12 • Reverse lunge 3x10/chân • Side plank 2x30s/bên • Bird dog 2x12/bên • Đứng thăng bằng 1 chân 2x30s/bên", "km": 0, "pace": "~25-30 phút"}, {"week": 1, "date": "15/08/2026", "dow": "T7", "phase": "Base", "loai": "Easy", "mota": "Chạy nhẹ, tập trung form", "km": 5, "pace": "7:00-7:30/km"}, {"week": 1, "date": "16/08/2026", "dow": "CN", "phase": "Base", "loai": "Long run", "mota": "Chạy dài đầu tiên, giữ pace thoải mái", "km": 10, "pace": "7:00-7:30/km"}, {"week": 2, "date": "17/08/2026", "dow": "T2", "phase": "Base", "loai": "Bổ trợ A", "mota": "Squat bodyweight 3x12 • Glute bridge 3x15 • Plank 3x30-45s • Clamshell 2x15/bên • Calf raise 3x15", "km": 0, "pace": "~25-30 phút"}, {"week": 2, "date": "18/08/2026", "dow": "T3", "phase": "Base", "loai": "Easy", "mota": "Chạy nhẹ", "km": 6, "pace": "7:00-7:30/km"}, {"week": 2, "date": "20/08/2026", "dow": "T5", "phase": "Base", "loai": "Fartlek", "mota": "Khởi động 2km + 4x(2' nhanh/2' chậm) + thả lỏng 1km", "km": 6, "pace": "Biến tốc"}, {"week": 2, "date": "21/08/2026", "dow": "T6", "phase": "Base", "loai": "Bổ trợ B", "mota": "Romanian Deadlift (tạ nhẹ) 3x12 • Reverse lunge 3x10/chân • Side plank 2x30s/bên • Bird dog 2x12/bên • Đứng thăng bằng 1 chân 2x30s/bên", "km": 0, "pace": "~25-30 phút"}, {"week": 2, "date": "22/08/2026", "dow": "T7", "phase": "Base", "loai": "Easy", "mota": "Chạy nhẹ", "km": 5, "pace": "7:00-7:30/km"}, {"week": 2, "date": "23/08/2026", "dow": "CN", "phase": "Base", "loai": "Long run", "mota": "Long run tăng dần, quãng cuối giữ pace ổn định", "km": 11, "pace": "7:00-7:30/km"}, {"week": 3, "date": "24/08/2026", "dow": "T2", "phase": "Base", "loai": "Bổ trợ A", "mota": "Squat bodyweight 3x12 • Glute bridge 3x15 • Plank 3x30-45s • Clamshell 2x15/bên • Calf raise 3x15", "km": 0, "pace": "~25-30 phút"}, {"week": 3, "date": "25/08/2026", "dow": "T3", "phase": "Base", "loai": "Easy", "mota": "Chạy nhẹ", "km": 6, "pace": "7:00-7:30/km"}, {"week": 3, "date": "27/08/2026", "dow": "T5", "phase": "Base", "loai": "Tempo", "mota": "Khởi động 2km + 15' tempo + thả lỏng 1km", "km": 6, "pace": "6:00-6:15/km"}, {"week": 3, "date": "28/08/2026", "dow": "T6", "phase": "Base", "loai": "Bổ trợ B", "mota": "Romanian Deadlift (tạ nhẹ) 3x12 • Reverse lunge 3x10/chân • Side plank 2x30s/bên • Bird dog 2x12/bên • Đứng thăng bằng 1 chân 2x30s/bên", "km": 0, "pace": "~25-30 phút"}, {"week": 3, "date": "29/08/2026", "dow": "T7", "phase": "Base", "loai": "Easy", "mota": "Chạy nhẹ", "km": 6, "pace": "7:00-7:30/km"}, {"week": 3, "date": "30/08/2026", "dow": "CN", "phase": "Base", "loai": "Long run", "mota": "Long run, chú ý bổ sung nước", "km": 13, "pace": "7:00-7:30/km"}, {"week": 4, "date": "31/08/2026", "dow": "T2", "phase": "Base - Deload", "loai": "Bổ trợ (giảm tải)", "mota": "Squat bodyweight 2x10 • Glute bridge 2x12 • Plank 2x30s • Clamshell 2x12/bên", "km": 0, "pace": "~15-20 phút"}, {"week": 4, "date": "01/09/2026", "dow": "T3", "phase": "Base - Deload", "loai": "Easy", "mota": "Tuần giảm tải, chạy nhẹ nhàng", "km": 5, "pace": "7:00-7:30/km"}, {"week": 4, "date": "03/09/2026", "dow": "T5", "phase": "Base - Deload", "loai": "Easy", "mota": "Chạy nhẹ", "km": 5, "pace": "7:00-7:30/km"}, {"week": 4, "date": "05/09/2026", "dow": "T7", "phase": "Base - Deload", "loai": "Easy", "mota": "Chạy nhẹ", "km": 5, "pace": "7:00-7:30/km"}, {"week": 4, "date": "06/09/2026", "dow": "CN", "phase": "Base - Deload", "loai": "Long run", "mota": "Long run nhẹ, phục hồi", "km": 9, "pace": "7:00-7:30/km"}, {"week": 5, "date": "07/09/2026", "dow": "T2", "phase": "Base", "loai": "Bổ trợ A", "mota": "Squat bodyweight/tạ nhẹ 3x12 • Glute bridge 3x15 • Plank 3x40-50s • Clamshell 2x15/bên • Calf raise 3x15", "km": 0, "pace": "~25-30 phút"}, {"week": 5, "date": "08/09/2026", "dow": "T3", "phase": "Base", "loai": "Easy", "mota": "Chạy nhẹ", "km": 6, "pace": "7:00-7:30/km"}, {"week": 5, "date": "10/09/2026", "dow": "T5", "phase": "Base", "loai": "Tempo", "mota": "Khởi động 2km + 20' tempo + thả lỏng 1km", "km": 7, "pace": "6:00-6:15/km"}, {"week": 5, "date": "11/09/2026", "dow": "T6", "phase": "Base", "loai": "Bổ trợ B", "mota": "Romanian Deadlift 3x12 • Reverse lunge 3x10/chân • Side plank 2x35s/bên • Bird dog 2x12/bên • Đứng thăng bằng 1 chân 2x30s/bên", "km": 0, "pace": "~25-30 phút"}, {"week": 5, "date": "12/09/2026", "dow": "T7", "phase": "Base", "loai": "Easy", "mota": "Chạy nhẹ", "km": 6, "pace": "7:00-7:30/km"}, {"week": 5, "date": "13/09/2026", "dow": "CN", "phase": "Base", "loai": "Long run", "mota": "Long run", "km": 14, "pace": "7:00-7:30/km"}, {"week": 6, "date": "14/09/2026", "dow": "T2", "phase": "Base", "loai": "Bổ trợ A", "mota": "Squat bodyweight/tạ nhẹ 3x12 • Glute bridge 3x15 • Plank 3x40-50s • Clamshell 2x15/bên • Calf raise 3x15", "km": 0, "pace": "~25-30 phút"}, {"week": 6, "date": "15/09/2026", "dow": "T3", "phase": "Base", "loai": "Easy", "mota": "Chạy nhẹ", "km": 7, "pace": "7:00-7:30/km"}, {"week": 6, "date": "17/09/2026", "dow": "T5", "phase": "Base", "loai": "Tempo", "mota": "Khởi động 2km + 20' tempo + thả lỏng 1km", "km": 7, "pace": "6:00-6:15/km"}, {"week": 6, "date": "18/09/2026", "dow": "T6", "phase": "Base", "loai": "Bổ trợ B", "mota": "Romanian Deadlift 3x12 • Reverse lunge 3x10/chân • Side plank 2x35s/bên • Bird dog 2x12/bên • Đứng thăng bằng 1 chân 2x30s/bên", "km": 0, "pace": "~25-30 phút"}, {"week": 6, "date": "19/09/2026", "dow": "T7", "phase": "Base", "loai": "Easy", "mota": "Chạy nhẹ", "km": 6, "pace": "7:00-7:30/km"}, {"week": 6, "date": "20/09/2026", "dow": "CN", "phase": "Base", "loai": "Long run", "mota": "Long run", "km": 15, "pace": "7:00-7:30/km"}, {"week": 7, "date": "21/09/2026", "dow": "T2", "phase": "Base", "loai": "Bổ trợ A", "mota": "Squat tạ nhẹ 3x12 • Glute bridge 3x15 • Plank 3x45-60s • Clamshell 2x15/bên • Calf raise 3x15", "km": 0, "pace": "~25-30 phút"}, {"week": 7, "date": "22/09/2026", "dow": "T3", "phase": "Base", "loai": "Easy", "mota": "Chạy nhẹ", "km": 7, "pace": "7:00-7:30/km"}, {"week": 7, "date": "24/09/2026", "dow": "T5", "phase": "Base", "loai": "Tempo", "mota": "Khởi động 2km + 25' tempo + thả lỏng 1km", "km": 8, "pace": "6:00-6:15/km"}, {"week": 7, "date": "25/09/2026", "dow": "T6", "phase": "Base", "loai": "Bổ trợ B", "mota": "Romanian Deadlift 3x12 • Reverse lunge 3x10/chân • Side plank 2x35s/bên • Bird dog 2x12/bên • Đứng thăng bằng 1 chân 2x30s/bên", "km": 0, "pace": "~25-30 phút"}, {"week": 7, "date": "26/09/2026", "dow": "T7", "phase": "Base", "loai": "Easy", "mota": "Chạy nhẹ", "km": 7, "pace": "7:00-7:30/km"}, {"week": 7, "date": "27/09/2026", "dow": "CN", "phase": "Base", "loai": "Long run", "mota": "Long run dài nhất giai đoạn Base", "km": 16, "pace": "7:00-7:30/km"}, {"week": 8, "date": "28/09/2026", "dow": "T2", "phase": "Base - Deload", "loai": "Bổ trợ (giảm tải)", "mota": "Squat bodyweight 2x10 • Glute bridge 2x12 • Plank 2x30s • Clamshell 2x12/bên", "km": 0, "pace": "~15-20 phút"}, {"week": 8, "date": "29/09/2026", "dow": "T3", "phase": "Base - Deload", "loai": "Easy", "mota": "Tuần giảm tải", "km": 6, "pace": "7:00-7:30/km"}, {"week": 8, "date": "01/10/2026", "dow": "T5", "phase": "Base - Deload", "loai": "Easy", "mota": "Chạy nhẹ", "km": 6, "pace": "7:00-7:30/km"}, {"week": 8, "date": "03/10/2026", "dow": "T7", "phase": "Base - Deload", "loai": "Easy", "mota": "Chạy nhẹ", "km": 5, "pace": "7:00-7:30/km"}, {"week": 8, "date": "04/10/2026", "dow": "CN", "phase": "Base - Deload", "loai": "Long run", "mota": "Long run nhẹ", "km": 11, "pace": "7:00-7:30/km"}, {"week": 9, "date": "05/10/2026", "dow": "T2", "phase": "Build", "loai": "Easy", "mota": "Chạy nhẹ", "km": 6, "pace": "7:00-7:30/km"}, {"week": 9, "date": "06/10/2026", "dow": "T3", "phase": "Build", "loai": "Interval", "mota": "Khởi động 2km + 6x800m (nghỉ 90s) + thả lỏng 1km", "km": 8, "pace": "5:45-5:55/km"}, {"week": 9, "date": "07/10/2026", "dow": "T4", "phase": "Build", "loai": "Bổ trợ A", "mota": "Bulgarian split squat 3x10/chân • Single-leg RDL 3x10/chân • Plank walkout 3x45s • Pallof press (dây kháng lực) 3x12/bên • Calf raise 1 chân 3x12/bên", "km": 0, "pace": "~30-35 phút"}, {"week": 9, "date": "08/10/2026", "dow": "T5", "phase": "Build", "loai": "Tempo", "mota": "Khởi động 2km + 25' tempo + thả lỏng 1km", "km": 8, "pace": "6:00-6:15/km"}, {"week": 9, "date": "09/10/2026", "dow": "T6", "phase": "Build", "loai": "Bổ trợ B", "mota": "Step-up 3x10/chân • Hip thrust 3x12 • Monster walk (dây kháng lực) 2x15 bước/hướng • Russian twist 3x20 • Nhảy dây nhẹ 2 phút", "km": 0, "pace": "~30-35 phút"}, {"week": 9, "date": "10/10/2026", "dow": "T7", "phase": "Build", "loai": "Easy", "mota": "Chạy nhẹ", "km": 6, "pace": "7:00-7:30/km"}, {"week": 9, "date": "11/10/2026", "dow": "CN", "phase": "Build", "loai": "Long run", "mota": "Long run", "km": 17, "pace": "7:00-7:20/km"}, {"week": 10, "date": "12/10/2026", "dow": "T2", "phase": "Build", "loai": "Easy", "mota": "Chạy nhẹ", "km": 6, "pace": "7:00-7:30/km"}, {"week": 10, "date": "13/10/2026", "dow": "T3", "phase": "Build", "loai": "Interval", "mota": "Khởi động 2km + 5x1000m (nghỉ 2') + thả lỏng 1km", "km": 9, "pace": "5:45-5:55/km"}, {"week": 10, "date": "14/10/2026", "dow": "T4", "phase": "Build", "loai": "Bổ trợ A", "mota": "Bulgarian split squat 3x10/chân • Single-leg RDL 3x10/chân • Plank walkout 3x45s • Pallof press 3x12/bên • Calf raise 1 chân 3x12/bên", "km": 0, "pace": "~30-35 phút"}, {"week": 10, "date": "15/10/2026", "dow": "T5", "phase": "Build", "loai": "Tempo", "mota": "Khởi động 2km + 28' tempo + thả lỏng 1km", "km": 9, "pace": "6:00-6:15/km"}, {"week": 10, "date": "16/10/2026", "dow": "T6", "phase": "Build", "loai": "Bổ trợ B", "mota": "Step-up 3x10/chân • Hip thrust 3x12 • Monster walk 2x15 bước/hướng • Russian twist 3x20 • Nhảy dây nhẹ 2 phút", "km": 0, "pace": "~30-35 phút"}, {"week": 10, "date": "17/10/2026", "dow": "T7", "phase": "Build", "loai": "Easy", "mota": "Chạy nhẹ", "km": 6, "pace": "7:00-7:30/km"}, {"week": 10, "date": "18/10/2026", "dow": "CN", "phase": "Build", "loai": "Long run", "mota": "Long run", "km": 18, "pace": "7:00-7:20/km"}, {"week": 11, "date": "19/10/2026", "dow": "T2", "phase": "Build", "loai": "Easy", "mota": "Chạy nhẹ", "km": 7, "pace": "7:00-7:30/km"}, {"week": 11, "date": "20/10/2026", "dow": "T3", "phase": "Build", "loai": "Interval", "mota": "Khởi động 2km + 6x1000m (nghỉ 2') + thả lỏng 1km", "km": 10, "pace": "5:45-5:55/km"}, {"week": 11, "date": "21/10/2026", "dow": "T4", "phase": "Build", "loai": "Bổ trợ A", "mota": "Bulgarian split squat 3x10/chân • Single-leg RDL 3x10/chân • Plank walkout 3x45s • Pallof press 3x12/bên • Calf raise 1 chân 3x12/bên", "km": 0, "pace": "~30-35 phút"}, {"week": 11, "date": "22/10/2026", "dow": "T5", "phase": "Build", "loai": "Tempo", "mota": "Khởi động 2km + 30' tempo + thả lỏng 1km", "km": 9, "pace": "6:00-6:15/km"}, {"week": 11, "date": "23/10/2026", "dow": "T6", "phase": "Build", "loai": "Bổ trợ B", "mota": "Step-up 3x10/chân • Hip thrust 3x12 • Monster walk 2x15 bước/hướng • Russian twist 3x20 • Nhảy dây nhẹ 2 phút", "km": 0, "pace": "~30-35 phút"}, {"week": 11, "date": "24/10/2026", "dow": "T7", "phase": "Build", "loai": "Easy", "mota": "Chạy nhẹ", "km": 6, "pace": "7:00-7:30/km"}, {"week": 11, "date": "25/10/2026", "dow": "CN", "phase": "Build", "loai": "Long run", "mota": "Long run", "km": 19, "pace": "7:00-7:20/km"}, {"week": 12, "date": "26/10/2026", "dow": "T2", "phase": "Build - Deload", "loai": "Easy", "mota": "Tuần giảm tải", "km": 5, "pace": "7:00-7:30/km"}, {"week": 12, "date": "27/10/2026", "dow": "T3", "phase": "Build - Deload", "loai": "Easy + strides", "mota": "Chạy nhẹ + 6x100m tăng tốc cuối buổi", "km": 6, "pace": "7:00-7:30/km"}, {"week": 12, "date": "28/10/2026", "dow": "T4", "phase": "Build - Deload", "loai": "Bổ trợ (giảm tải)", "mota": "Squat bodyweight 2x10 • Single-leg RDL (không tạ) 2x8/chân • Plank 2x30s • Glute bridge 2x12", "km": 0, "pace": "~15-20 phút"}, {"week": 12, "date": "29/10/2026", "dow": "T5", "phase": "Build - Deload", "loai": "Easy", "mota": "Chạy nhẹ", "km": 6, "pace": "7:00-7:30/km"}, {"week": 12, "date": "31/10/2026", "dow": "T7", "phase": "Build - Deload", "loai": "Easy", "mota": "Chạy nhẹ", "km": 5, "pace": "7:00-7:30/km"}, {"week": 12, "date": "01/11/2026", "dow": "CN", "phase": "Build - Deload", "loai": "Long run", "mota": "Long run nhẹ", "km": 14, "pace": "7:00-7:30/km"}, {"week": 13, "date": "02/11/2026", "dow": "T2", "phase": "Build", "loai": "Easy", "mota": "Chạy nhẹ", "km": 7, "pace": "7:00-7:30/km"}, {"week": 13, "date": "03/11/2026", "dow": "T3", "phase": "Build", "loai": "Interval", "mota": "Khởi động 2km + 4x1600m (nghỉ 3') + thả lỏng 1km", "km": 11, "pace": "5:45-6:00/km"}, {"week": 13, "date": "04/11/2026", "dow": "T4", "phase": "Build", "loai": "Bổ trợ A", "mota": "Bulgarian split squat 3x10/chân • Single-leg RDL 3x10/chân • Plank walkout 3x50s • Pallof press 3x12/bên • Calf raise 1 chân 3x12/bên", "km": 0, "pace": "~30-35 phút"}, {"week": 13, "date": "05/11/2026", "dow": "T5", "phase": "Build", "loai": "Tempo", "mota": "Khởi động 2km + 30' tempo + thả lỏng 1km", "km": 10, "pace": "6:00-6:15/km"}, {"week": 13, "date": "06/11/2026", "dow": "T6", "phase": "Build", "loai": "Bổ trợ B", "mota": "Step-up 3x10/chân • Hip thrust 3x12 • Monster walk 2x15 bước/hướng • Russian twist 3x20 • Nhảy dây nhẹ 2 phút", "km": 0, "pace": "~30-35 phút"}, {"week": 13, "date": "07/11/2026", "dow": "T7", "phase": "Build", "loai": "Easy", "mota": "Chạy nhẹ", "km": 6, "pace": "7:00-7:30/km"}, {"week": 13, "date": "08/11/2026", "dow": "CN", "phase": "Build", "loai": "Long run", "mota": "Long run, 3km cuối chạy pace mục tiêu race", "km": 19, "pace": "7:00-7:20/km (3km cuối @6:25-6:35)"}, {"week": 14, "date": "09/11/2026", "dow": "T2", "phase": "Build", "loai": "Easy", "mota": "Chạy nhẹ", "km": 7, "pace": "7:00-7:30/km"}, {"week": 14, "date": "10/11/2026", "dow": "T3", "phase": "Build", "loai": "Interval", "mota": "Khởi động 2km + 5x1000m (nghỉ 90s) + thả lỏng 1km", "km": 10, "pace": "5:45-5:55/km"}, {"week": 14, "date": "11/11/2026", "dow": "T4", "phase": "Build", "loai": "Bổ trợ A", "mota": "Bulgarian split squat 3x10/chân • Single-leg RDL 3x10/chân • Plank walkout 3x50s • Pallof press 3x12/bên • Calf raise 1 chân 3x12/bên", "km": 0, "pace": "~30-35 phút"}, {"week": 14, "date": "12/11/2026", "dow": "T5", "phase": "Build", "loai": "Tempo", "mota": "Khởi động 2km + 30' tempo + thả lỏng 1km", "km": 10, "pace": "6:00-6:15/km"}, {"week": 14, "date": "13/11/2026", "dow": "T6", "phase": "Build", "loai": "Bổ trợ B", "mota": "Step-up 3x10/chân • Hip thrust 3x12 • Monster walk 2x15 bước/hướng • Russian twist 3x20 • Nhảy dây nhẹ 2 phút", "km": 0, "pace": "~30-35 phút"}, {"week": 14, "date": "14/11/2026", "dow": "T7", "phase": "Build", "loai": "Easy", "mota": "Chạy nhẹ", "km": 6, "pace": "7:00-7:30/km"}, {"week": 14, "date": "15/11/2026", "dow": "CN", "phase": "Build", "loai": "Long run", "mota": "Long run, 4km cuối chạy pace mục tiêu race", "km": 20, "pace": "7:00-7:20/km (4km cuối @6:25-6:35)"}, {"week": 15, "date": "16/11/2026", "dow": "T2", "phase": "Build", "loai": "Easy", "mota": "Chạy nhẹ", "km": 7, "pace": "7:00-7:30/km"}, {"week": 15, "date": "17/11/2026", "dow": "T3", "phase": "Build", "loai": "Interval", "mota": "Khởi động 2km + 3x2000m (nghỉ 3') + thả lỏng 1km", "km": 11, "pace": "5:50-6:00/km"}, {"week": 15, "date": "18/11/2026", "dow": "T4", "phase": "Build", "loai": "Bổ trợ A", "mota": "Bulgarian split squat 3x10/chân • Single-leg RDL 3x10/chân • Plank walkout 3x50s • Pallof press 3x12/bên • Calf raise 1 chân 3x12/bên", "km": 0, "pace": "~30-35 phút"}, {"week": 15, "date": "19/11/2026", "dow": "T5", "phase": "Build", "loai": "Tempo", "mota": "Khởi động 2km + 35' tempo + thả lỏng 1km", "km": 10, "pace": "6:00-6:15/km"}, {"week": 15, "date": "20/11/2026", "dow": "T6", "phase": "Build", "loai": "Bổ trợ B", "mota": "Step-up 3x10/chân • Hip thrust 3x12 • Monster walk 2x15 bước/hướng • Russian twist 3x20 • Nhảy dây nhẹ 2 phút", "km": 0, "pace": "~30-35 phút"}, {"week": 15, "date": "21/11/2026", "dow": "T7", "phase": "Build", "loai": "Easy", "mota": "Chạy nhẹ", "km": 6, "pace": "7:00-7:30/km"}, {"week": 15, "date": "22/11/2026", "dow": "CN", "phase": "Build", "loai": "Long run", "mota": "Chạy thử gần đủ cự ly, pace chậm hơn race 30-45s/km", "km": 21, "pace": "6:55-7:10/km"}, {"week": 16, "date": "23/11/2026", "dow": "T2", "phase": "Build - Deload", "loai": "Easy", "mota": "Tuần giảm tải", "km": 5, "pace": "7:00-7:30/km"}, {"week": 16, "date": "24/11/2026", "dow": "T3", "phase": "Build - Deload", "loai": "Easy + strides", "mota": "Chạy nhẹ + 6x100m tăng tốc", "km": 6, "pace": "7:00-7:30/km"}, {"week": 16, "date": "25/11/2026", "dow": "T4", "phase": "Build - Deload", "loai": "Bổ trợ (giảm tải)", "mota": "Squat bodyweight 2x10 • Single-leg RDL (không tạ) 2x8/chân • Plank 2x30s • Glute bridge 2x12", "km": 0, "pace": "~15-20 phút"}, {"week": 16, "date": "26/11/2026", "dow": "T5", "phase": "Build - Deload", "loai": "Easy", "mota": "Chạy nhẹ", "km": 6, "pace": "7:00-7:30/km"}, {"week": 16, "date": "28/11/2026", "dow": "T7", "phase": "Build - Deload", "loai": "Easy", "mota": "Chạy nhẹ", "km": 5, "pace": "7:00-7:30/km"}, {"week": 16, "date": "29/11/2026", "dow": "CN", "phase": "Build - Deload", "loai": "Long run", "mota": "Long run nhẹ", "km": 15, "pace": "7:00-7:30/km"}, {"week": 17, "date": "30/11/2026", "dow": "T2", "phase": "Peak", "loai": "Easy", "mota": "Chạy nhẹ", "km": 7, "pace": "7:00-7:30/km"}, {"week": 17, "date": "01/12/2026", "dow": "T3", "phase": "Peak", "loai": "Race-pace intervals", "mota": "Khởi động 2km + 6x1000m nhanh hơn RP 10s (nghỉ 90s) + thả lỏng 1km", "km": 10, "pace": "6:15-6:25/km"}, {"week": 17, "date": "02/12/2026", "dow": "T4", "phase": "Peak", "loai": "Bổ trợ - Duy trì", "mota": "Squat tạ 2x10 • Single-leg RDL 2x10/chân • Plank 2x45s • Running drills: A-skip, B-skip, High knees, Butt kicks (2x20m/bài) • Nhảy bục thấp (low box jump) 2x8", "km": 0, "pace": "~25 phút"}, {"week": 17, "date": "03/12/2026", "dow": "T5", "phase": "Peak", "loai": "Tempo", "mota": "Khởi động 2km + 30' tempo + thả lỏng 1km", "km": 10, "pace": "6:00-6:15/km"}, {"week": 17, "date": "05/12/2026", "dow": "T7", "phase": "Peak", "loai": "Easy", "mota": "Chạy nhẹ", "km": 6, "pace": "7:00-7:30/km"}, {"week": 17, "date": "06/12/2026", "dow": "CN", "phase": "Peak", "loai": "Long run", "mota": "Long run, 6km cuối chạy pace race", "km": 20, "pace": "7:00-7:15/km (6km cuối @6:25-6:35)"}, {"week": 18, "date": "07/12/2026", "dow": "T2", "phase": "Peak", "loai": "Easy", "mota": "Chạy nhẹ", "km": 7, "pace": "7:00-7:30/km"}, {"week": 18, "date": "08/12/2026", "dow": "T3", "phase": "Peak", "loai": "Race-pace intervals", "mota": "Khởi động 2km + 4x1600m @ pace race (nghỉ 2') + thả lỏng 1km", "km": 10, "pace": "6:25-6:35/km"}, {"week": 18, "date": "09/12/2026", "dow": "T4", "phase": "Peak", "loai": "Bổ trợ - Duy trì", "mota": "Squat tạ 2x10 • Single-leg RDL 2x10/chân • Plank 2x45s • Running drills: A-skip, B-skip, High knees, Butt kicks (2x20m/bài) • Nhảy bục thấp 2x8", "km": 0, "pace": "~25 phút"}, {"week": 18, "date": "10/12/2026", "dow": "T5", "phase": "Peak", "loai": "Tempo", "mota": "Khởi động 2km + 30' tempo + thả lỏng 1km", "km": 10, "pace": "6:00-6:15/km"}, {"week": 18, "date": "12/12/2026", "dow": "T7", "phase": "Peak", "loai": "Easy", "mota": "Chạy nhẹ", "km": 6, "pace": "7:00-7:30/km"}, {"week": 18, "date": "13/12/2026", "dow": "CN", "phase": "Peak", "loai": "Long run mô phỏng", "mota": "Race simulation - chạy toàn bộ ở pace race + 10-15s/km", "km": 21, "pace": "6:35-6:50/km"}, {"week": 19, "date": "14/12/2026", "dow": "T2", "phase": "Peak", "loai": "Easy", "mota": "Chạy nhẹ", "km": 6, "pace": "7:00-7:30/km"}, {"week": 19, "date": "15/12/2026", "dow": "T3", "phase": "Peak", "loai": "Race-pace intervals", "mota": "Khởi động 2km + 5x1000m @ pace race (nghỉ 90s) + thả lỏng 1km", "km": 9, "pace": "6:25-6:35/km"}, {"week": 19, "date": "16/12/2026", "dow": "T4", "phase": "Peak", "loai": "Bổ trợ - Duy trì", "mota": "Squat tạ 2x10 • Single-leg RDL 2x10/chân • Plank 2x40s • Running drills: A-skip, B-skip, High knees (2x20m/bài)", "km": 0, "pace": "~20 phút"}, {"week": 19, "date": "17/12/2026", "dow": "T5", "phase": "Peak", "loai": "Tempo", "mota": "Khởi động 2km + 25' tempo + thả lỏng 1km", "km": 8, "pace": "6:00-6:15/km"}, {"week": 19, "date": "19/12/2026", "dow": "T7", "phase": "Peak", "loai": "Easy", "mota": "Chạy nhẹ", "km": 6, "pace": "7:00-7:30/km"}, {"week": 19, "date": "20/12/2026", "dow": "CN", "phase": "Peak", "loai": "Long run", "mota": "Long run, 8km cuối chạy pace race", "km": 18, "pace": "7:00-7:15/km (8km cuối @6:25-6:35)"}, {"week": 20, "date": "21/12/2026", "dow": "T2", "phase": "Peak - Deload", "loai": "Easy", "mota": "Tuần giảm tải trước taper", "km": 6, "pace": "7:00-7:30/km"}, {"week": 20, "date": "22/12/2026", "dow": "T3", "phase": "Peak - Deload", "loai": "Easy + strides", "mota": "Chạy nhẹ + 6x100m tăng tốc", "km": 6, "pace": "7:00-7:30/km"}, {"week": 20, "date": "23/12/2026", "dow": "T4", "phase": "Peak - Deload", "loai": "Bổ trợ (nhẹ)", "mota": "Plank 2x30s • Glute bridge 2x12 • Clamshell 2x12/bên • Giãn cơ động 10 phút", "km": 0, "pace": "~15 phút"}, {"week": 20, "date": "24/12/2026", "dow": "T5", "phase": "Peak - Deload", "loai": "Easy", "mota": "Chạy nhẹ", "km": 5, "pace": "7:00-7:30/km"}, {"week": 20, "date": "26/12/2026", "dow": "T7", "phase": "Peak - Deload", "loai": "Easy", "mota": "Chạy nhẹ", "km": 5, "pace": "7:00-7:30/km"}, {"week": 20, "date": "27/12/2026", "dow": "CN", "phase": "Peak - Deload", "loai": "Long run", "mota": "Long run nhẹ", "km": 14, "pace": "7:00-7:30/km"}, {"week": 21, "date": "28/12/2026", "dow": "T2", "phase": "Taper", "loai": "Easy", "mota": "Chạy nhẹ", "km": 6, "pace": "7:00-7:30/km"}, {"week": 21, "date": "29/12/2026", "dow": "T3", "phase": "Taper", "loai": "Bổ trợ - Mobility", "mota": "Giãn cơ động: xoay hông, đá chân (leg swings) 2x10/bên • Plank ngắn 2x20s • Glute bridge 2x12 • Clamshell 2x12/bên • Foam roller: bắp chân, đùi trước, IT band 5 phút/vùng", "km": 0, "pace": "~15-20 phút"}, {"week": 21, "date": "30/12/2026", "dow": "T4", "phase": "Taper", "loai": "Easy + strides", "mota": "Chạy nhẹ + 6x100m tăng tốc", "km": 6, "pace": "7:00-7:30/km"}, {"week": 21, "date": "01/01/2027", "dow": "T6", "phase": "Taper", "loai": "Tempo ngắn", "mota": "Khởi động 2km + 15' tempo + thả lỏng 1km", "km": 5, "pace": "6:00-6:15/km"}, {"week": 21, "date": "03/01/2027", "dow": "CN", "phase": "Taper", "loai": "Long run", "mota": "Long run giảm dần, 4km cuối @ pace race", "km": 12, "pace": "7:00-7:15/km (4km cuối @6:25-6:35)"}, {"week": 22, "date": "04/01/2027", "dow": "T2", "phase": "Taper", "loai": "Easy", "mota": "Chạy nhẹ", "km": 5, "pace": "7:00-7:30/km"}, {"week": 22, "date": "05/01/2027", "dow": "T3", "phase": "Taper", "loai": "Bổ trợ - Mobility", "mota": "Giãn cơ động nhẹ 2x8/bên • Plank ngắn 2x15s • Glute bridge 2x10 • Foam roller toàn thân 5-10 phút", "km": 0, "pace": "~10-15 phút"}, {"week": 22, "date": "06/01/2027", "dow": "T4", "phase": "Taper", "loai": "Easy + strides", "mota": "Chạy nhẹ + 4x100m tăng tốc", "km": 5, "pace": "7:00-7:30/km"}, {"week": 22, "date": "08/01/2027", "dow": "T6", "phase": "Taper", "loai": "Race-pace ngắn", "mota": "Khởi động 2km + 4x800m @ pace race (nghỉ 90s) + thả lỏng 1km", "km": 7, "pace": "6:25-6:35/km"}, {"week": 22, "date": "10/01/2027", "dow": "CN", "phase": "Taper", "loai": "Long run nhẹ", "mota": "Chạy nhẹ nhàng, không gắng sức", "km": 8, "pace": "7:15-7:30/km"}, {"week": 23, "date": "11/01/2027", "dow": "T2", "phase": "Race week", "loai": "Easy", "mota": "Chạy nhẹ, giữ cơ thể tỉnh táo", "km": 4, "pace": "7:15-7:30/km"}, {"week": 23, "date": "13/01/2027", "dow": "T4", "phase": "Race week", "loai": "Easy + strides", "mota": "Chạy rất nhẹ + 4x100m tăng tốc nhẹ", "km": 3, "pace": "7:15-7:30/km"}, {"week": 23, "date": "15/01/2027", "dow": "T6", "phase": "Race week", "loai": "Shakeout", "mota": "Chạy nhẹ 2-3km giữ cảm giác chân", "km": 3, "pace": "7:15-7:30/km"}, {"week": 23, "date": "17/01/2027", "dow": "CN", "phase": "Race week", "loai": "RACE DAY", "mota": "HCMC Marathon 2027 - Cự ly 21km (17/01/2027)", "km": 21, "pace": "Mục tiêu 6:25-6:35/km (~2h15-2h20)"}], "weeks": [{"week": 1, "start": "10/08/2026", "end": "16/08/2026", "phase": "Base", "num_sessions": 6, "num_run": 4, "num_supp": 2, "total_km": 26}, {"week": 2, "start": "17/08/2026", "end": "23/08/2026", "phase": "Base", "num_sessions": 6, "num_run": 4, "num_supp": 2, "total_km": 28}, {"week": 3, "start": "24/08/2026", "end": "30/08/2026", "phase": "Base", "num_sessions": 6, "num_run": 4, "num_supp": 2, "total_km": 31}, {"week": 4, "start": "31/08/2026", "end": "06/09/2026", "phase": "Base - Deload", "num_sessions": 5, "num_run": 4, "num_supp": 1, "total_km": 24}, {"week": 5, "start": "07/09/2026", "end": "13/09/2026", "phase": "Base", "num_sessions": 6, "num_run": 4, "num_supp": 2, "total_km": 33}, {"week": 6, "start": "14/09/2026", "end": "20/09/2026", "phase": "Base", "num_sessions": 6, "num_run": 4, "num_supp": 2, "total_km": 35}, {"week": 7, "start": "21/09/2026", "end": "27/09/2026", "phase": "Base", "num_sessions": 6, "num_run": 4, "num_supp": 2, "total_km": 38}, {"week": 8, "start": "28/09/2026", "end": "04/10/2026", "phase": "Base - Deload", "num_sessions": 5, "num_run": 4, "num_supp": 1, "total_km": 28}, {"week": 9, "start": "05/10/2026", "end": "11/10/2026", "phase": "Build", "num_sessions": 7, "num_run": 5, "num_supp": 2, "total_km": 45}, {"week": 10, "start": "12/10/2026", "end": "18/10/2026", "phase": "Build", "num_sessions": 7, "num_run": 5, "num_supp": 2, "total_km": 48}, {"week": 11, "start": "19/10/2026", "end": "25/10/2026", "phase": "Build", "num_sessions": 7, "num_run": 5, "num_supp": 2, "total_km": 51}, {"week": 12, "start": "26/10/2026", "end": "01/11/2026", "phase": "Build - Deload", "num_sessions": 6, "num_run": 5, "num_supp": 1, "total_km": 36}, {"week": 13, "start": "02/11/2026", "end": "08/11/2026", "phase": "Build", "num_sessions": 7, "num_run": 5, "num_supp": 2, "total_km": 53}, {"week": 14, "start": "09/11/2026", "end": "15/11/2026", "phase": "Build", "num_sessions": 7, "num_run": 5, "num_supp": 2, "total_km": 53}, {"week": 15, "start": "16/11/2026", "end": "22/11/2026", "phase": "Build", "num_sessions": 7, "num_run": 5, "num_supp": 2, "total_km": 55}, {"week": 16, "start": "23/11/2026", "end": "29/11/2026", "phase": "Build - Deload", "num_sessions": 6, "num_run": 5, "num_supp": 1, "total_km": 37}, {"week": 17, "start": "30/11/2026", "end": "06/12/2026", "phase": "Peak", "num_sessions": 6, "num_run": 5, "num_supp": 1, "total_km": 53}, {"week": 18, "start": "07/12/2026", "end": "13/12/2026", "phase": "Peak", "num_sessions": 6, "num_run": 5, "num_supp": 1, "total_km": 54}, {"week": 19, "start": "14/12/2026", "end": "20/12/2026", "phase": "Peak", "num_sessions": 6, "num_run": 5, "num_supp": 1, "total_km": 47}, {"week": 20, "start": "21/12/2026", "end": "27/12/2026", "phase": "Peak - Deload", "num_sessions": 6, "num_run": 5, "num_supp": 1, "total_km": 36}, {"week": 21, "start": "28/12/2026", "end": "03/01/2027", "phase": "Taper", "num_sessions": 5, "num_run": 4, "num_supp": 1, "total_km": 29}, {"week": 22, "start": "04/01/2027", "end": "10/01/2027", "phase": "Taper", "num_sessions": 5, "num_run": 4, "num_supp": 1, "total_km": 25}, {"week": 23, "start": "11/01/2027", "end": "17/01/2027", "phase": "Race week", "num_sessions": 4, "num_run": 4, "num_supp": 0, "total_km": 31}]};
+
+const PHASE_COLOR = {
+  "Base": "var(--base-c)",
+  "Base - Deload": "var(--base-c)",
+  "Build": "var(--build-c)",
+  "Build - Deload": "var(--build-c)",
+  "Peak": "var(--peak-c)",
+  "Peak - Deload": "var(--peak-c)",
+  "Taper": "var(--taper-c)",
+  "Race week": "var(--race-c)"
+};
+
+const PHASE_GROUPS = [
+  {key:"all", label:"Tất cả", color:"var(--ink-dim)"},
+  {key:"Base", label:"Base", color:"var(--base-c)"},
+  {key:"Build", label:"Build", color:"var(--build-c)"},
+  {key:"Peak", label:"Peak", color:"var(--peak-c)"},
+  {key:"Taper", label:"Taper", color:"var(--taper-c)"},
+  {key:"Race week", label:"Race", color:"var(--race-c)"}
+];
+
+function phaseGroupOf(phase){
+  if(phase.startsWith("Base")) return "Base";
+  if(phase.startsWith("Build")) return "Build";
+  if(phase.startsWith("Peak")) return "Peak";
+  if(phase.startsWith("Taper")) return "Taper";
+  if(phase.startsWith("Race")) return "Race week";
+  return phase;
+}
+
+function isSupp(loai){
+  return loai.indexOf("Bổ trợ") === 0;
+}
+
+const ZONES = [
+  {name:"Easy (E)", pace:"7:00&ndash;7:30/km", desc:"Nói chuyện thoải mái được cả câu dài. Chiếm phần lớn khối lượng tập luyện."},
+  {name:"Tempo (T)", pace:"6:00&ndash;6:15/km", desc:"Gắng sức &lsquo;thoải mái&ndash;khó&rsquo;, chỉ nói được vài từ ngắt quãng."},
+  {name:"Interval (I)", pace:"5:45&ndash;6:00/km", desc:"Gần ngưỡng VO2max, các đoạn lặp ngắn có nghỉ giữa hiệp."},
+  {name:"Race pace (RP)", pace:"6:25&ndash;6:35/km", desc:"Pace mục tiêu cho HCMC Marathon 2027 &mdash; 21km, ~2h15&ndash;2h20."},
+  {name:"Long run (LR)", pace:"7:00&ndash;7:20/km", desc:"Pace ổn định cho các buổi chạy dài, tăng dần độ bền."}
+];
+
+function renderFilterBar(){
+  const bar = document.getElementById("filterBar");
+  bar.innerHTML = PHASE_GROUPS.map(function(g,i){
+    return '<button class="chip'+(i===0?' active':'')+'" data-key="'+g.key+'">'+
+      '<span class="dot" style="background:'+g.color+'"></span>'+g.label+'</button>';
+  }).join("");
+  bar.addEventListener("click", function(e){
+    const btn = e.target.closest(".chip");
+    if(!btn) return;
+    document.querySelectorAll(".chip").forEach(function(c){c.classList.remove("active");});
+    btn.classList.add("active");
+    applyFilter(btn.dataset.key);
+  });
+}
+
+function applyFilter(key){
+  document.querySelectorAll(".week-marker").forEach(function(el){
+    if(key === "all" || el.dataset.group === key){
+      el.style.display = "";
+    } else {
+      el.style.display = "none";
+    }
+  });
+}
+
+function sessionsForWeek(weekNum){
+  return DATA.rows.filter(function(r){ return r.week === weekNum; });
+}
+
+function renderTimeline(){
+  const el = document.getElementById("timeline");
+  el.innerHTML = DATA.weeks.map(function(w){
+    const group = phaseGroupOf(w.phase);
+    const color = PHASE_COLOR[w.phase] || "var(--accent)";
+    const sessions = sessionsForWeek(w.week);
+    const isRace = w.phase === "Race week";
+
+    const detailRows = sessions.map(function(s){
+      const supp = isSupp(s.loai);
+      const kmCell = s.km > 0 ? ('<div class="s-km">'+s.km+'km</div>') : '<div class="s-km dash">&ndash;</div>';
+      return '<div class="session-row'+(supp?' supp':'')+'">'+
+        '<div class="s-dow">'+s.dow+'<br>'+s.date.slice(0,5)+'</div>'+
+        '<div class="s-type">'+s.loai+'</div>'+
+        '<div class="s-desc">'+s.mota+'<span class="pace">'+s.pace+'</span></div>'+
+        kmCell+
+      '</div>';
+    }).join("");
+
+    const previewTags = sessions.map(function(s){
+      const supp = isSupp(s.loai);
+      return '<span class="tag'+(supp?' supp':'')+'">'+s.loai+'</span>';
+    }).join('');
+
+    return '<div class="week-marker" data-group="'+group+'" style="--phase-color:'+color+'">'+
+      '<div class="marker-post">'+
+        '<div class="marker-badge">'+w.week+'</div>'+
+        '<div class="marker-km">'+w.total_km+'km</div>'+
+      '</div>'+
+      '<div class="card'+(isRace?' race':'')+'" style="--phase-color:'+color+'" onclick="this.classList.toggle(\'open\')">'+
+        '<div class="card-top">'+
+          '<div>'+
+            '<div class="card-phase">Tuần '+w.week+' &middot; '+w.phase+'</div>'+
+            '<div class="card-dates">'+w.start+' &rarr; '+w.end+'</div>'+
+          '</div>'+
+          '<div class="card-total"><div class="num">'+w.total_km+'</div><div class="unit">km</div></div>'+
+        '</div>'+
+        '<div class="card-sessions-preview">'+previewTags+'</div>'+
+        '<div class="card-detail">'+detailRows+'</div>'+
+      '</div>'+
+    '</div>';
+  }).join("");
+}
+
+function renderZones(){
+  document.getElementById("zoneGrid").innerHTML = ZONES.map(function(z){
+    return '<div class="zone-cell">'+
+      '<div class="zone-name">'+z.name+'</div>'+
+      '<div class="zone-pace">'+z.pace+'</div>'+
+      '<div class="zone-desc">'+z.desc+'</div>'+
+    '</div>';
+  }).join("");
+}
+
+renderFilterBar();
+renderTimeline();
+renderZones();
+</script>
+</body>
+</html>
