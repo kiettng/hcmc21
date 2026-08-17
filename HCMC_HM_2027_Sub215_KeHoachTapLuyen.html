@@ -1,0 +1,2336 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HCMC HM 2027 · Sub 2:15 · Kế hoạch (Revised sau 15K)</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CiAgPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9IiMxNDE4MUMiLz4KICA8Y2lyY2xlIGN4PSIzMiIgY3k9IjMyIiByPSIyNiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjRjJBOTNCIiBzdHJva2Utd2lkdGg9IjMiLz4KICA8cGF0aCBkPSJNMzIgMTAgQTIyIDIyIDAgMCAxIDMyIDU0IiBmaWxsPSJub25lIiBzdHJva2U9IiNDMTNFMkEiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPHRleHQgeD0iMzIiIHk9IjMwIiBmb250LWZhbWlseT0iU3BhY2UgTW9ubywgbW9ub3NwYWNlIiBmb250LXNpemU9IjEzIiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjRjVGM0VGIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj4yMS4xPC90ZXh0PgogIDx0ZXh0IHg9IjMyIiB5PSI0NCIgZm9udC1mYW1pbHk9IlNwYWNlIE1vbm8sIG1vbm9zcGFjZSIgZm9udC1zaXplPSI5IiBmaWxsPSIjRjJBOTNCIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj4yOjE1PC90ZXh0Pgo8L3N2Zz4K">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F5F3EF;
+  --ink:#14181C;
+  --ink-soft:#2A2F35;
+  --muted:#726B5E;
+  --line:#DDD7C9;
+  --amber:#F2A93B;
+  --amber-deep:#D98A1F;
+  --red:#C13E2A;
+  --green:#3F8F5F;
+  --green-soft:#E4F0E7;
+  --blue:#3B6EA0;
+  --blue-soft:#E4EBF2;
+  --paper:#FFFFFF;
+  --amber-soft:#FBEAC7;
+  --font-display:'Be Vietnam Pro',sans-serif;
+  --font-mono:'Space Mono',monospace;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-display);-webkit-font-smoothing:antialiased;}
+a{color:inherit;}
+.wrap{max-width:1080px;margin:0 auto;padding:0 28px;}
+::selection{background:var(--amber);color:var(--ink);}
+
+/* ---------- HERO ---------- */
+.hero{background:var(--ink);color:var(--bg);padding:56px 0 46px;position:relative;overflow:hidden;}
+.hero::after{content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle, rgba(242,169,59,0.16), transparent 70%);}
+.hero-top{display:flex;align-items:center;gap:14px;margin-bottom:22px;}
+.badge{
+  width:40px;height:40px;border-radius:10px;background:var(--ink);border:1.5px solid var(--amber);
+  display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:9px;
+  color:var(--amber);text-align:center;line-height:1.1;flex-direction:column;flex:none;
+}
+.eyebrow{font-family:var(--font-mono);font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);display:flex;align-items:center;gap:10px;}
+.eyebrow::before{content:"";width:22px;height:2px;background:var(--amber);display:inline-block;}
+.hero h1{font-family:var(--font-display);font-weight:900;font-size:clamp(30px,5.4vw,52px);line-height:1.06;margin:0 0 18px;letter-spacing:-0.01em;max-width:820px;}
+.hero h1 em{font-style:normal;color:var(--amber);}
+.hero-sub{font-size:15.5px;color:#C9C4B8;max-width:640px;line-height:1.65;margin:0 0 34px;}
+.stat-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.12);border-radius:14px;overflow:hidden;max-width:960px;}
+.stat{background:#1B2026;padding:18px 18px 16px;}
+.stat .label{font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;color:#8B8578;margin-bottom:7px;}
+.stat .value{font-family:var(--font-mono);font-weight:700;font-size:19px;color:var(--bg);}
+.stat.highlight .value{color:var(--amber);}
+
+/* ---------- SECTIONS ---------- */
+section{padding:58px 0;}
+.sec-head{margin-bottom:30px;max-width:700px;}
+.sec-tag{font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;}
+.sec-head h2{font-family:var(--font-display);font-weight:800;font-size:clamp(22px,3.2vw,32px);margin:0 0 12px;letter-spacing:-0.01em;}
+.sec-head p{color:var(--muted);line-height:1.65;margin:0;font-size:14.5px;}
+
+/* ---------- USAGE NOTE ---------- */
+.usage-note{background:var(--amber-soft);border:1px solid #EBD196;border-radius:14px;padding:20px 22px;font-size:13.5px;line-height:1.7;color:#5C4413;}
+.usage-note b{color:var(--amber-deep);}
+
+/* ---------- CHECKPOINTS ---------- */
+.cp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;}
+.cp-card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px 18px 16px;}
+.cp-card .cp-name{font-family:var(--font-mono);font-weight:700;font-size:13px;color:var(--ink);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+.cp-card .cp-name::before{content:"◆";color:var(--amber);}
+.cp-row{display:flex;gap:10px;font-size:12.5px;line-height:1.55;margin-bottom:8px;}
+.cp-row .tag{flex:none;font-family:var(--font-mono);font-size:10px;padding:2px 7px;border-radius:5px;height:fit-content;margin-top:1px;}
+.tag-good{background:var(--green-soft);color:var(--green);}
+.tag-warn{background:#FBEAE7;color:var(--red);}
+.cp-action{font-size:12px;color:var(--muted);border-top:1px dashed var(--line);padding-top:10px;margin-top:4px;}
+
+/* ---------- PHASE STRIP ---------- */
+.phase-strip{display:flex;flex-wrap:wrap;gap:10px;}
+.phase-chip{flex:1 1 140px;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:14px 16px;}
+.phase-chip .bar{height:5px;border-radius:3px;margin-bottom:12px;}
+.phase-chip .weeks{font-family:var(--font-mono);font-size:11px;color:var(--muted);margin-bottom:4px;}
+.phase-chip .name{font-weight:700;font-size:13.5px;line-height:1.25;}
+
+/* ---------- CHART ---------- */
+.chart-card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:26px 22px 16px;}
+#volchart{width:100%;height:auto;display:block;overflow:visible;}
+.chart-legend{display:flex;flex-wrap:wrap;gap:16px;margin-top:14px;font-family:var(--font-mono);font-size:11px;color:var(--muted);}
+.chart-legend .dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px;vertical-align:-1px;}
+#tooltip{position:absolute;pointer-events:none;background:var(--ink);color:var(--bg);font-family:var(--font-mono);font-size:11.5px;padding:9px 11px;border-radius:8px;line-height:1.5;opacity:0;transition:opacity .12s;max-width:230px;z-index:5;}
+.chart-wrap{position:relative;}
+
+/* ---------- RACE STRATEGY ---------- */
+.race-card{background:linear-gradient(135deg,#1B2026,#262019);color:var(--bg);border-radius:18px;padding:32px 30px;}
+.race-card h3{font-size:20px;margin:0 0 6px;font-weight:800;}
+.race-card .sub{color:#C9C4B8;font-size:13.5px;margin:0 0 24px;}
+.split-bar{display:flex;height:52px;border-radius:10px;overflow:hidden;margin-bottom:14px;}
+.split-seg{display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:11px;line-height:1.4;}
+.split-seg .r{font-size:9px;opacity:.75;}
+.split-legend{display:flex;justify-content:space-between;font-family:var(--font-mono);font-size:10.5px;color:#9C9688;}
+
+/* ---------- PACE TABLE ---------- */
+.table-card{background:var(--paper);border:1px solid var(--line);border-radius:14px;overflow:hidden;}
+table{width:100%;border-collapse:collapse;font-size:13px;}
+th{text-align:left;background:var(--ink);color:var(--bg);font-family:var(--font-mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;padding:11px 14px;font-weight:600;}
+td{padding:11px 14px;border-top:1px solid var(--line);vertical-align:top;line-height:1.5;}
+tr:hover td{background:#FAF8F3;}
+.pace-val{font-family:var(--font-mono);font-weight:700;color:var(--blue);}
+
+/* ---------- INJURY / GREEN ---------- */
+.injury-card{background:var(--green-soft);border:1px solid #C7DFCD;border-radius:18px;padding:32px 28px;}
+.injury-card .sec-tag{color:var(--green);}
+.exercise-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px;margin-top:22px;}
+.ex-item{background:var(--paper);border-radius:12px;padding:15px 16px 13px;border:1px solid #D6E7DA;}
+.ex-item .t{font-weight:700;font-size:14px;margin-bottom:6px;}
+.ex-item .meta{font-family:var(--font-mono);font-size:10.5px;color:var(--green);margin-bottom:6px;}
+.ex-item .d{font-size:12px;color:var(--muted);line-height:1.5;}
+
+/* ---------- SOURCES ---------- */
+.source-list{display:flex;flex-direction:column;gap:10px;}
+.source-item{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:14px 16px;font-size:13px;}
+.source-item .name{font-weight:700;margin-bottom:3px;}
+.source-item .applies{color:var(--muted);font-size:12.5px;margin-bottom:6px;}
+.source-item a{font-family:var(--font-mono);font-size:11.5px;color:var(--blue);word-break:break-all;}
+
+/* ---------- WEEK ACCORDION ---------- */
+.week-list{display:flex;flex-direction:column;gap:8px;}
+.week-item{background:var(--paper);border:1px solid var(--line);border-radius:12px;overflow:hidden;}
+.week-head{display:grid;grid-template-columns:50px 1fr 100px 20px;gap:12px;align-items:center;padding:14px 18px;cursor:pointer;user-select:none;}
+.week-head:hover{background:#FAF8F3;}
+.week-head .wk{font-family:var(--font-mono);font-weight:700;color:var(--muted);font-size:13px;}
+.week-head .ph{font-size:13.5px;font-weight:600;}
+.week-head .ph .dates{display:block;font-family:var(--font-mono);font-size:11px;color:var(--muted);font-weight:400;margin-top:2px;}
+.week-head .km{font-family:var(--font-mono);font-size:13px;text-align:right;}
+.week-head .km small{color:var(--muted);display:block;font-size:10px;}
+.chev{transition:transform .18s;color:var(--muted);}
+.week-item.open .chev{transform:rotate(180deg);}
+.week-body{max-height:0;overflow:hidden;transition:max-height .25s ease;}
+.week-item.open .week-body{max-height:1200px;}
+.week-body-inner{padding:0 18px 18px;}
+.main-line{font-family:var(--font-mono);font-size:11.5px;color:var(--muted);background:#F7F5F0;border-radius:8px;padding:10px 12px;margin-bottom:12px;}
+.day-row{display:grid;grid-template-columns:88px 100px 1fr 62px;gap:10px;padding:10px 0;border-top:1px solid var(--line);font-size:12.5px;align-items:start;}
+.day-row:first-of-type{border-top:none;}
+.day-row .dt{font-family:var(--font-mono);font-size:11px;color:var(--muted);}
+.day-row .ses{font-weight:600;}
+.day-row .det{color:var(--ink-soft);line-height:1.45;}
+.day-row .det .pace{display:block;font-family:var(--font-mono);font-size:11px;color:var(--blue);margin-top:3px;}
+.day-row .det .note{display:block;font-size:11px;color:var(--red);margin-top:3px;}
+.day-row .kmv{font-family:var(--font-mono);text-align:right;font-weight:700;}
+.day-row.lr{background:var(--green-soft);margin:0 -8px;padding:10px 8px;border-radius:6px;border-top:none;}
+.day-row.race{background:#FBEAE7;margin:0 -8px;padding:10px 8px;border-radius:6px;}
+
+footer{padding:36px 0 56px;border-top:1px solid var(--line);color:var(--muted);font-size:12.5px;line-height:1.7;}
+footer strong{color:var(--ink);}
+
+@media(max-width:640px){
+  .week-head{grid-template-columns:36px 1fr 60px 16px;}
+  .day-row{grid-template-columns:1fr;gap:2px;}
+  .day-row .kmv{text-align:left;}
+  .cp-grid{grid-template-columns:1fr;}
+  .split-bar{flex-direction:column;height:auto;}
+  .split-seg{padding:10px 0;}
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="hero-top">
+      <div class="badge"><span>21.1</span><span>2:15</span></div>
+      <div class="eyebrow">Kế hoạch tập luyện · Revised sau race 15K</div>
+    </div>
+    <h1>Sub <em>2:15</em> HCMC Half Marathon 2027</h1>
+    <p class="hero-sub">Cập nhật sau race 15K ngày 23/08/2026 — 21 tuần, bắt đầu bằng 1 tuần phục hồi hoàn toàn, ưu tiên số một xuyên suốt: <b>không để đau ống đồng tái phát</b>.</p>
+    <div class="stat-row" id="statRow"></div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <section id="usage">
+    <div class="usage-note" id="usageNote"></div>
+  </section>
+
+  <section id="checkpoints">
+    <div class="sec-head">
+      <div class="sec-tag">Checkpoint hiệu chỉnh</div>
+      <h2>4 mốc kiểm tra dọc đường</h2>
+      <p>Mỗi mốc có ngưỡng "tốt" và "cần thận trọng" — kết quả quyết định có tiếp tục lịch cứng hay điều chỉnh xuống mục tiêu thực tế hơn.</p>
+    </div>
+    <div class="cp-grid" id="cpGrid"></div>
+  </section>
+
+  <section id="phases">
+    <div class="sec-head">
+      <div class="sec-tag">Lộ trình</div>
+      <h2>13 chặng, từ phục hồi đến vạch đích</h2>
+      <p>Xen kẽ các tuần cutback (giảm tải) để cơ thể hấp thụ tải trọng an toàn.</p>
+    </div>
+    <div class="phase-strip" id="phaseStrip"></div>
+  </section>
+
+  <section id="chart">
+    <div class="sec-head">
+      <div class="sec-tag">Biểu đồ khối lượng</div>
+      <h2 id="chartTitle"></h2>
+      <p>Cột càng cao = tuần chạy càng nhiều. Chấm xanh là quãng long run. Rê chuột / chạm vào từng tuần để xem chi tiết.</p>
+    </div>
+    <div class="chart-card">
+      <div class="chart-wrap">
+        <svg id="volchart" viewBox="0 0 1000 340"></svg>
+        <div id="tooltip"></div>
+      </div>
+      <div class="chart-legend">
+        <span><i class="dot" style="background:#F2A93B"></i>Cường độ thấp → cao</span>
+        <span><i class="dot" style="background:#3F8F5F"></i>Long run</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="race">
+    <div class="sec-head">
+      <div class="sec-tag">Chiến thuật race day</div>
+      <h2>17/01/2027 · Negative split nhẹ</h2>
+      <p>Chia pace theo 3 chặng — giữ sức đoạn đầu, ổn định giữa chặng, tăng tốc nếu còn khỏe ở cuối.</p>
+    </div>
+    <div class="race-card">
+      <h3>21.1KM — Mục tiêu 2:15:00</h3>
+      <p class="sub">RPE 7 → 9 khi về đích</p>
+      <div class="split-bar" id="splitBar"></div>
+      <div class="split-legend"><span>START</span><span>KM 10.5</span><span>FINISH</span></div>
+    </div>
+  </section>
+
+  <section id="paces">
+    <div class="sec-head">
+      <div class="sec-tag">Pace guide</div>
+      <h2>Từng loại buổi tập</h2>
+    </div>
+    <div class="table-card">
+      <table id="paceTable"></table>
+    </div>
+  </section>
+
+  <section id="injury">
+    <div class="injury-card">
+      <div class="sec-tag">Strength &amp; phòng tái phát</div>
+      <h2 style="font-family:var(--font-display);font-weight:800;font-size:24px;margin:0 0 10px;">Bảo vệ ống đồng xuyên suốt kế hoạch</h2>
+      <p style="color:var(--muted);max-width:640px;line-height:1.6;font-size:14px;">2-3 lần/tuần, tiến triển độ khó dần theo thời gian — không nhảy cóc khi còn đau.</p>
+      <div class="exercise-grid" id="exerciseGrid"></div>
+    </div>
+  </section>
+
+  <section id="weeks">
+    <div class="sec-head">
+      <div class="sec-tag">Lịch tập chi tiết</div>
+      <h2>21 tuần, từng buổi</h2>
+      <p>Bấm vào một tuần để xem lịch 7 ngày. Ô xanh là long run, ô hồng là ngày thi đấu.</p>
+    </div>
+    <div class="week-list" id="weekList"></div>
+  </section>
+
+  <section id="sources">
+    <div class="sec-head">
+      <div class="sec-tag">Nguồn tham khảo</div>
+      <h2>Căn cứ y khoa cho phần phòng ngừa chấn thương</h2>
+    </div>
+    <div class="source-list" id="sourceList"></div>
+  </section>
+
+  <footer id="footerNote"></footer>
+</div>
+
+<script id="plan-data" type="application/json">
+{
+ "meta": {
+  "title": "HCMC HALF MARATHON 2027 — SUB 2:15 (REVISED AFTER 15K RACE)",
+  "pre_race": "15K — 23/08/2026",
+  "start": "2026-08-24",
+  "race_date": "2027-01-17",
+  "goal": "HCMC HM 21.1K — 2:15:00",
+  "current_10k": "1:08:00",
+  "goal_pace": "~6:24/km",
+  "duration": "21 tuần, gồm 1 tuần post-race recovery",
+  "frequency": "4 buổi chạy + 2 strength/tuần sau khi hồi phục",
+  "priority": "Không tái phát đau ống đồng",
+  "usage_note": "Race 15K được xem là một tải lớn ngay trước chu kỳ HM. Không cần cố lập PR nếu ống đồng mới hồi phục. Sau race, tuần 1 chỉ recovery. Nếu đau ống đồng tái xuất hiện, không chuyển sang tuần kế tiếp theo lịch cứng; lặp lại/giảm tải cho tới khi chạy easy ổn định. Kết quả 15K dùng để cập nhật checkpoint pace, nhưng không thay đổi nguyên tắc tăng tải từ từ.",
+  "checkpoints": [
+   {
+    "name": "15K 23/08",
+    "good": "Hoàn thành không đau / kiểm soát",
+    "caution": "Đau tăng trong hoặc sau race",
+    "action": "Nếu đau: ưu tiên hồi phục, không ép lịch tuần 2"
+   },
+   {
+    "name": "5K tuần 10",
+    "good": "≤31:00",
+    "caution": "31:01–32:30",
+    "action": "Chậm hơn: giữ tempo chậm hơn 10–15s/km"
+   },
+   {
+    "name": "10K tuần 17",
+    "good": "≤61:30",
+    "caution": "61:31–64:00",
+    "action": ">64:00: cân nhắc HM 2:20–2:25"
+   },
+   {
+    "name": "18K tuần 18",
+    "good": "Không đau, form ổn",
+    "caution": "Mỏi nhiều hoặc đau",
+    "action": "Giảm peak/taper sớm nếu cần"
+   }
+  ]
+ },
+ "weeks": [
+  {
+   "week": 1,
+   "phase": "Post-15K Recovery",
+   "start": "2026-08-24",
+   "end": "2026-08-30",
+   "planned_km": 6,
+   "long_run_km": 0,
+   "main_workout": "Không quality. Đi bộ nhẹ + mobility; chỉ chạy nếu đi bộ/sinh hoạt không đau.",
+   "days": [
+    {
+     "date": "2026-08-24",
+     "weekday": "Thứ 2",
+     "type": "Recovery",
+     "content": "Ngày sau race 15K: nghỉ hoàn toàn, đi bộ sinh hoạt nhẹ.",
+     "planned_km": 0,
+     "pace": "Không chạy",
+     "rpe": "1–2",
+     "note": "Theo dõi đau ống đồng trong 24–48h sau race."
+    },
+    {
+     "date": "2026-08-25",
+     "weekday": "Thứ 3",
+     "type": "Recovery",
+     "content": "Đi bộ 20–30' + mobility cổ chân/calf rất nhẹ.",
+     "planned_km": 0,
+     "pace": "Không đau",
+     "rpe": "1–2",
+     "note": ""
+    },
+    {
+     "date": "2026-08-26",
+     "weekday": "Thứ 4",
+     "type": "Mobility",
+     "content": "Mobility 10–15'; không strength nặng.",
+     "planned_km": 0,
+     "pace": "Phục hồi",
+     "rpe": "1–2",
+     "note": ""
+    },
+    {
+     "date": "2026-08-27",
+     "weekday": "Thứ 5",
+     "type": "Recovery Run",
+     "content": "3K rất nhẹ; bỏ buổi nếu chân chưa ổn.",
+     "planned_km": 3,
+     "pace": "7:50–8:40/km hoặc chậm hơn",
+     "rpe": "2",
+     "note": ""
+    },
+    {
+     "date": "2026-08-28",
+     "weekday": "Thứ 6",
+     "type": "Nghỉ",
+     "content": "Nghỉ hoàn toàn.",
+     "planned_km": 0,
+     "pace": "Phục hồi",
+     "rpe": "1–2",
+     "note": ""
+    },
+    {
+     "date": "2026-08-29",
+     "weekday": "Thứ 7",
+     "type": "Recovery Run",
+     "content": "3K rất nhẹ; có thể run/walk.",
+     "planned_km": 3,
+     "pace": "7:50–8:40/km hoặc chậm hơn",
+     "rpe": "2",
+     "note": ""
+    },
+    {
+     "date": "2026-08-30",
+     "weekday": "Chủ nhật",
+     "type": "Nghỉ / Walk",
+     "content": "Đi bộ nhẹ 30–40' nếu không đau.",
+     "planned_km": 0,
+     "pace": "Phục hồi",
+     "rpe": "1–2",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "week": 2,
+   "phase": "Return-to-run",
+   "start": "2026-08-31",
+   "end": "2026-09-06",
+   "planned_km": 15,
+   "long_run_km": 5,
+   "main_workout": "Easy hoàn toàn; có thể run/walk 4' chạy / 1' đi bộ.",
+   "days": [
+    {
+     "date": "2026-08-31",
+     "weekday": "Thứ 2",
+     "type": "Strength A",
+     "content": "Strength nhẹ: calf raise 2×10; soleus raise 2×10; tibialis raise 2×12; glute bridge 2×12.",
+     "planned_km": 0,
+     "pace": "Không đau; kiểm soát chậm",
+     "rpe": "4–5",
+     "note": ""
+    },
+    {
+     "date": "2026-09-01",
+     "weekday": "Thứ 3",
+     "type": "Easy",
+     "content": "3K easy.",
+     "planned_km": 3,
+     "pace": "7:45–8:30/km hoặc run/walk",
+     "rpe": "2–3",
+     "note": ""
+    },
+    {
+     "date": "2026-09-02",
+     "weekday": "Thứ 4",
+     "type": "Strength B / Cross",
+     "content": "Strength nhẹ + tùy chọn xe đạp/elliptical 20–25' Z2.",
+     "planned_km": 0,
+     "pace": "Không tạo đau cẳng chân",
+     "rpe": "4–5",
+     "note": ""
+    },
+    {
+     "date": "2026-09-03",
+     "weekday": "Thứ 5",
+     "type": "Easy + Strides",
+     "content": "4K easy. Easy hoàn toàn; có thể run/walk 4' chạy / 1' đi bộ.",
+     "planned_km": 4,
+     "pace": "7:45–8:30/km hoặc run/walk",
+     "rpe": "3",
+     "note": ""
+    },
+    {
+     "date": "2026-09-04",
+     "weekday": "Thứ 6",
+     "type": "Nghỉ / Mobility",
+     "content": "Nghỉ. 8–12' mobility cổ chân + calf nhẹ.",
+     "planned_km": 0,
+     "pace": "Phục hồi",
+     "rpe": "1–2",
+     "note": ""
+    },
+    {
+     "date": "2026-09-05",
+     "weekday": "Thứ 7",
+     "type": "Recovery",
+     "content": "3K recovery rất nhẹ.",
+     "planned_km": 3,
+     "pace": "7:50–8:40/km hoặc chậm hơn",
+     "rpe": "2",
+     "note": ""
+    },
+    {
+     "date": "2026-09-06",
+     "weekday": "Chủ nhật",
+     "type": "Long Run",
+     "content": "5K long run easy.",
+     "planned_km": 5,
+     "pace": "7:15–8:00/km",
+     "rpe": "3–4",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "week": 3,
+   "phase": "Return-to-run",
+   "start": "2026-09-07",
+   "end": "2026-09-13",
+   "planned_km": 17,
+   "long_run_km": 6,
+   "main_workout": "Thu: 4 × 20s strides rất nhẹ nếu ống đồng êm hoàn toàn.",
+   "days": [
+    {
+     "date": "2026-09-07",
+     "weekday": "Thứ 2",
+     "type": "Strength A",
+     "content": "Calf raise gối thẳng 3×12; soleus raise gối cong 3×12; tibialis raise 3×15; split squat 3×8/chân; side plank 2×30–45s",
+     "planned_km": 0,
+     "pace": "Không đau; kiểm soát chậm",
+     "rpe": "4–5",
+     "note": ""
+    },
+    {
+     "date": "2026-09-08",
+     "weekday": "Thứ 3",
+     "type": "Easy",
+     "content": "4K easy.",
+     "planned_km": 4,
+     "pace": "7:45–8:30/km hoặc run/walk",
+     "rpe": "2–3",
+     "note": ""
+    },
+    {
+     "date": "2026-09-09",
+     "weekday": "Thứ 4",
+     "type": "Strength B / Cross",
+     "content": "Strength nhẹ + tùy chọn xe đạp/elliptical 20–25' Z2.",
+     "planned_km": 0,
+     "pace": "Không tạo đau cẳng chân",
+     "rpe": "4–5",
+     "note": ""
+    },
+    {
+     "date": "2026-09-10",
+     "weekday": "Thứ 5",
+     "type": "Easy + Strides",
+     "content": "4K easy. Thu: 4 × 20s strides rất nhẹ nếu ống đồng êm hoàn toàn.",
+     "planned_km": 4,
+     "pace": "7:45–8:30/km hoặc run/walk",
+     "rpe": "3",
+     "note": ""
+    },
+    {
+     "date": "2026-09-11",
+     "weekday": "Thứ 6",
+     "type": "Nghỉ / Mobility",
+     "content": "Nghỉ. 8–12' mobility cổ chân + calf nhẹ.",
+     "planned_km": 0,
+     "pace": "Phục hồi",
+     "rpe": "1–2",
+     "note": ""
+    },
+    {
+     "date": "2026-09-12",
+     "weekday": "Thứ 7",
+     "type": "Recovery",
+     "content": "3K recovery rất nhẹ.",
+     "planned_km": 3,
+     "pace": "7:50–8:40/km hoặc chậm hơn",
+     "rpe": "2",
+     "note": ""
+    },
+    {
+     "date": "2026-09-13",
+     "weekday": "Chủ nhật",
+     "type": "Long Run",
+     "content": "6K long run easy.",
+     "planned_km": 6,
+     "pace": "7:15–8:00/km",
+     "rpe": "3–4",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "week": 4,
+   "phase": "Base",
+   "start": "2026-09-14",
+   "end": "2026-09-20",
+   "planned_km": 19,
+   "long_run_km": 7,
+   "main_workout": "6 × 20s strides, nghỉ jog/đi bộ 60–90s.",
+   "days": [
+    {
+     "date": "2026-09-14",
+     "weekday": "Thứ 2",
+     "type": "Strength A",
+     "content": "Calf raise gối thẳng 3×12; soleus raise gối cong 3×12; tibialis raise 3×15; split squat 3×8/chân; side plank 2×30–45s",
+     "planned_km": 0,
+     "pace": "Không đau; kiểm soát chậm",
+     "rpe": "4–5",
+     "note": ""
+    },
+    {
+     "date": "2026-09-15",
+     "weekday": "Thứ 3",
+     "type": "Easy",
+     "content": "4K easy.",
+     "planned_km": 4,
+     "pace": "7:20–8:05/km",
+     "rpe": "2–3",
+     "note": ""
+    },
+    {
+     "date": "2026-09-16",
+     "weekday": "Thứ 4",
+     "type": "Strength B / Cross",
+     "content": "Single-leg calf raise 3×10; tibialis raise 3×15; step-down 3×8/chân; glute bridge 3×12; band lateral walk 3×12 bước/bên",
+     "planned_km": 0,
+     "pace": "Không tạo đau cẳng chân",
+     "rpe": "4–5",
+     "note": ""
+    },
+    {
+     "date": "2026-09-17",
+     "weekday": "Thứ 5",
+     "type": "Easy + Strides",
+     "content": "5K easy. 6 × 20s strides, nghỉ jog/đi bộ 60–90s.",
+     "planned_km": 5,
+     "pace": "7:20–8:05/km",
+     "rpe": "3",
+     "note": ""
+    },
+    {
+     "date": "2026-09-18",
+     "weekday": "Thứ 6",
+     "type": "Nghỉ / Mobility",
+     "content": "Nghỉ. 8–12' mobility cổ chân + calf nhẹ.",
+     "planned_km": 0,
+     "pace": "Phục hồi",
+     "rpe": "1–2",
+     "note": ""
+    },
+    {
+     "date": "2026-09-19",
+     "weekday": "Thứ 7",
+     "type": "Recovery",
+     "content": "3K recovery rất nhẹ.",
+     "planned_km": 3,
+     "pace": "7:50–8:40/km hoặc chậm hơn",
+     "rpe": "2",
+     "note": ""
+    },
+    {
+     "date": "2026-09-20",
+     "weekday": "Chủ nhật",
+     "type": "Long Run",
+     "content": "7K long run easy.",
+     "planned_km": 7,
+     "pace": "7:15–8:00/km",
+     "rpe": "3–4",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "week": 5,
+   "phase": "Base",
+   "start": "2026-09-21",
+   "end": "2026-09-27",
+   "planned_km": 21,
+   "long_run_km": 8,
+   "main_workout": "6 × 1' nhanh @ 6:30–6:40/km, 2' easy.",
+   "days": [
+    {
+     "date": "2026-09-21",
+     "weekday": "Thứ 2",
+     "type": "Strength A",
+     "content": "Calf raise gối thẳng 3×12; soleus raise gối cong 3×12; tibialis raise 3×15; split squat 3×8/chân; side plank 2×30–45s",
+     "planned_km": 0,
+     "pace": "Không đau; kiểm soát chậm",
+     "rpe": "4–5",
+     "note": ""
+    },
+    {
+     "date": "2026-09-22",
+     "weekday": "Thứ 3",
+     "type": "Easy",
+     "content": "5K easy.",
+     "planned_km": 5,
+     "pace": "7:20–8:05/km",
+     "rpe": "2–3",
+     "note": ""
+    },
+    {
+     "date": "2026-09-23",
+     "weekday": "Thứ 4",
+     "type": "Strength B / Cross",
+     "content": "Single-leg calf raise 3×10; tibialis raise 3×15; step-down 3×8/chân; glute bridge 3×12; band lateral walk 3×12 bước/bên",
+     "planned_km": 0,
+     "pace": "Không tạo đau cẳng chân",
+     "rpe": "4–5",
+     "note": ""
+    },
+    {
+     "date": "2026-09-24",
+     "weekday": "Thứ 5",
+     "type": "Quality",
+     "content": "Tổng 5K. 6 × 1' nhanh @ 6:30–6:40/km, 2' easy.",
+     "planned_km": 5,
+     "pace": "Theo block nhanh; phần còn lại easy",
+     "rpe": "5–7",
+     "note": ""
+    },
+    {
+     "date": "2026-09-25",
+     "weekday": "Thứ 6",
+     "type": "Nghỉ / Mobility",
+     "content": "Nghỉ. 8–12' mobility cổ chân + calf nhẹ.",
+     "planned_km": 0,
+     "pace": "Phục hồi",
+     "rpe": "1–2",
+     "note": ""
+    },
+    {
+     "date": "2026-09-26",
+     "weekday": "Thứ 7",
+     "type": "Recovery",
+     "content": "3K recovery rất nhẹ.",
+     "planned_km": 3,
+     "pace": "7:50–8:40/km hoặc chậm hơn",
+     "rpe": "2",
+     "note": ""
+    },
+    {
+     "date": "2026-09-27",
+     "weekday": "Chủ nhật",
+     "type": "Long Run",
+     "content": "8K long run easy.",
+     "planned_km": 8,
+     "pace": "7:15–8:00/km",
+     "rpe": "3–4",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "week": 6,
+   "phase": "Cutback + Base",
+   "start": "2026-09-28",
+   "end": "2026-10-04",
+   "planned_km": 19,
+   "long_run_km": 7,
+   "main_workout": "3 × 4' tempo @ 6:35–6:45/km, 3' easy.",
+   "days": [
+    {
+     "date": "2026-09-28",
+     "weekday": "Thứ 2",
+     "type": "Strength A",
+     "content": "Calf raise gối thẳng 3×12; soleus raise gối cong 3×12; tibialis raise 3×15; split squat 3×8/chân; side plank 2×30–45s",
+     "planned_km": 0,
+     "pace": "Không đau; kiểm soát chậm",
+     "rpe": "4–5",
+     "note": ""
+    },
+    {
+     "date": "2026-09-29",
+     "weekday": "Thứ 3",
+     "type": "Easy",
+     "content": "4K easy.",
+     "planned_km": 4,
+     "pace": "7:20–8:05/km",
+     "rpe": "2–3",
+     "note": ""
+    },
+    {
+     "date": "2026-09-30",
+     "weekday": "Thứ 4",
+     "type": "Strength B / Cross",
+     "content": "Single-leg calf raise 3×10; tibialis raise 3×15; step-down 3×8/chân; glute bridge 3×12; band lateral walk 3×12 bước/bên",
+     "planned_km": 0,
+     "pace": "Không tạo đau cẳng chân",
+     "rpe": "4–5",
+     "note": ""
+    },
+    {
+     "date": "2026-10-01",
+     "weekday": "Thứ 5",
+     "type": "Quality",
+     "content": "Tổng 5K. 3 × 4' tempo @ 6:35–6:45/km, 3' easy.",
+     "planned_km": 5,
+     "pace": "Theo block nhanh; phần còn lại easy",
+     "rpe": "5–7",
+     "note": ""
+    },
+    {
+     "date": "2026-10-02",
+     "weekday": "Thứ 6",
+     "type": "Nghỉ / Mobility",
+     "content": "Nghỉ. 8–12' mobility cổ chân + calf nhẹ.",
+     "planned_km": 0,
+     "pace": "Phục hồi",
+     "rpe": "1–2",
+     "note": ""
+    },
+    {
+     "date": "2026-10-03",
+     "weekday": "Thứ 7",
+     "type": "Recovery",
+     "content": "3K recovery rất nhẹ.",
+     "planned_km": 3,
+     "pace": "7:50–8:40/km hoặc chậm hơn",
+     "rpe": "2",
+     "note": ""
+    },
+    {
+     "date": "2026-10-04",
+     "weekday": "Chủ nhật",
+     "type": "Long Run",
+     "content": "7K long run easy.",
+     "planned_km": 7,
+     "pace": "7:15–8:00/km",
+     "rpe": "3–4",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "week": 7,
+   "phase": "Base",
+   "start": "2026-10-05",
+   "end": "2026-10-11",
+   "planned_km": 24,
+   "long_run_km": 9,
+   "main_workout": "6 × 2' @ 6:20–6:30/km, 2' easy.",
+   "days": [
+    {
+     "date": "2026-10-05",
+     "weekday": "Thứ 2",
+     "type": "Strength A",
+     "content": "Calf raise gối thẳng 3×12; soleus raise gối cong 3×12; tibialis raise 3×15; split squat 3×8/chân; side plank 2×30–45s",
+     "planned_km": 0,
+     "pace": "Không đau; kiểm soát chậm",
+     "rpe": "4–5",
+     "note": ""
+    },
+    {
+     "date": "2026-10-06",
+     "weekday": "Thứ 3",
+     "type": "Easy",
+     "content": "5K easy.",
+     "planned_km": 5,
+     "pace": "7:20–8:05/km",
+     "rpe": "2–3",
+     "note": ""
+    },
+    {
+     "date": "2026-10-07",
+     "weekday": "Thứ 4",
+     "type": "Strength B / Cross",
+     "content": "Single-leg calf raise 3×10; tibialis raise 3×15; step-down 3×8/chân; glute bridge 3×12; band lateral walk 3×12 bước/bên",
+     "planned_km": 0,
+     "pace": "Không tạo đau cẳng chân",
+     "rpe": "4–5",
+     "note": ""
+    },
+    {
+     "date": "2026-10-08",
+     "weekday": "Thứ 5",
+     "type": "Quality",
+     "content": "Tổng 6K. 6 × 2' @ 6:20–6:30/km, 2' easy.",
+     "planned_km": 6,
+     "pace": "Theo block nhanh; phần còn lại easy",
+     "rpe": "5–7",
+     "note": ""
+    },
+    {
+     "date": "2026-10-09",
+     "weekday": "Thứ 6",
+     "type": "Nghỉ / Mobility",
+     "content": "Nghỉ. 8–12' mobility cổ chân + calf nhẹ.",
+     "planned_km": 0,
+     "pace": "Phục hồi",
+     "rpe": "1–2",
+     "note": ""
+    },
+    {
+     "date": "2026-10-10",
+     "weekday": "Thứ 7",
+     "type": "Recovery",
+     "content": "4K recovery rất nhẹ.",
+     "planned_km": 4,
+     "pace": "7:50–8:40/km hoặc chậm hơn",
+     "rpe": "2",
+     "note": ""
+    },
+    {
+     "date": "2026-10-11",
+     "weekday": "Chủ nhật",
+     "type": "Long Run",
+     "content": "9K long run easy.",
+     "planned_km": 9,
+     "pace": "7:15–8:00/km",
+     "rpe": "3–4",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "week": 8,
+   "phase": "Base → Build",
+   "start": "2026-10-12",
+   "end": "2026-10-18",
+   "planned_km": 26,
+   "long_run_km": 10,
+   "main_workout": "20' tempo liên tục @ 6:35–6:45/km.",
+   "days": [
+    {
+     "date": "2026-10-12",
+     "weekday": "Thứ 2",
+     "type": "Strength A",
+     "content": "Calf raise gối thẳng 3×12; soleus raise gối cong 3×12; tibialis raise 3×15; split squat 3×8/chân; side plank 2×30–45s",
+     "planned_km": 0,
+     "pace": "Không đau; kiểm soát chậm",
+     "rpe": "4–5",
+     "note": ""
+    },
+    {
+     "date": "2026-10-13",
+     "weekday": "Thứ 3",
+     "type": "Easy",
+     "content": "6K easy.",
+     "planned_km": 6,
+     "pace": "7:20–8:05/km",
+     "rpe": "2–3",
+     "note": ""
+    },
+    {
+     "date": "2026-10-14",
+     "weekday": "Thứ 4",
+     "type": "Strength B / Cross",
+     "content": "Single-leg calf raise 3×10; tibialis raise 3×15; step-down 3×8/chân; glute bridge 3×12; band lateral walk 3×12 bước/bên",
+     "planned_km": 0,
+     "pace": "Không tạo đau cẳng chân",
+     "rpe": "4–5",
+     "note": ""
+    },
+    {
+     "date": "2026-10-15",
+     "weekday": "Thứ 5",
+     "type": "Quality",
+     "content": "Tổng 6K. 20' tempo liên tục @ 6:35–6:45/km.",
+     "planned_km": 6,
+     "pace": "Theo block nhanh; phần còn lại easy",
+     "rpe": "5–7",
+     "note": ""
+    },
+    {
+     "date": "2026-10-16",
+     "weekday": "Thứ 6",
+     "type": "Nghỉ / Mobility",
+     "content": "Nghỉ. 8–12' mobility cổ chân + calf nhẹ.",
+     "planned_km": 0,
+     "pace": "Phục hồi",
+     "rpe": "1–2",
+     "note": ""
+    },
+    {
+     "date": "2026-10-17",
+     "weekday": "Thứ 7",
+     "type": "Recovery",
+     "content": "4K recovery rất nhẹ.",
+     "planned_km": 4,
+     "pace": "7:50–8:40/km hoặc chậm hơn",
+     "rpe": "2",
+     "note": ""
+    },
+    {
+     "date": "2026-10-18",
+     "weekday": "Chủ nhật",
+     "type": "Long Run",
+     "content": "10K long run easy.",
+     "planned_km": 10,
+     "pace": "7:15–8:00/km",
+     "rpe": "3–4",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "week": 9,
+   "phase": "Cutback",
+   "start": "2026-10-19",
+   "end": "2026-10-25",
+   "planned_km": 22,
+   "long_run_km": 8,
+   "main_workout": "Fartlek 8 × 1' nhanh / 1' chậm, không all-out.",
+   "days": [
+    {
+     "date": "2026-10-19",
+     "weekday": "Thứ 2",
+     "type": "Strength A",
+     "content": "Calf raise gối thẳng 3×12; soleus raise gối cong 3×12; tibialis raise 3×15; split squat 3×8/chân; side plank 2×30–45s",
+     "planned_km": 0,
+     "pace": "Không đau; kiểm soát chậm",
+     "rpe": "4–5",
+     "note": ""
+    },
+    {
+     "date": "2026-10-20",
+     "weekday": "Thứ 3",
+     "type": "Easy",
+     "content": "5K easy.",
+     "planned_km": 5,
+     "pace": "7:20–8:05/km",
+     "rpe": "2–3",
+     "note": ""
+    },
+    {
+     "date": "2026-10-21",
+     "weekday": "Thứ 4",
+     "type": "Strength B / Cross",
+     "content": "Single-leg calf raise 3×10; tibialis raise 3×15; step-down 3×8/chân; glute bridge 3×12; band lateral walk 3×12 bước/bên",
+     "planned_km": 0,
+     "pace": "Không tạo đau cẳng chân",
+     "rpe": "4–5",
+     "note": ""
+    },
+    {
+     "date": "2026-10-22",
+     "weekday": "Thứ 5",
+     "type": "Quality",
+     "content": "Tổng 5K. Fartlek 8 × 1' nhanh / 1' chậm, không all-out.",
+     "planned_km": 5,
+     "pace": "Theo block nhanh; phần còn lại easy",
+     "rpe": "5–7",
+     "note": ""
+    },
+    {
+     "date": "2026-10-23",
+     "weekday": "Thứ 6",
+     "type": "Nghỉ / Mobility",
+     "content": "Nghỉ. 8–12' mobility cổ chân + calf nhẹ.",
+     "planned_km": 0,
+     "pace": "Phục hồi",
+     "rpe": "1–2",
+     "note": ""
+    },
+    {
+     "date": "2026-10-24",
+     "weekday": "Thứ 7",
+     "type": "Recovery",
+     "content": "4K recovery rất nhẹ.",
+     "planned_km": 4,
+     "pace": "7:50–8:40/km hoặc chậm hơn",
+     "rpe": "2",
+     "note": ""
+    },
+    {
+     "date": "2026-10-25",
+     "weekday": "Chủ nhật",
+     "type": "Long Run",
+     "content": "8K long run easy.",
+     "planned_km": 8,
+     "pace": "7:15–8:00/km",
+     "rpe": "3–4",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "week": 10,
+   "phase": "Build",
+   "start": "2026-10-26",
+   "end": "2026-11-01",
+   "planned_km": 28,
+   "long_run_km": 11,
+   "main_workout": "5K benchmark: 1K WU + 5K mạnh có kiểm soát + 1K CD.",
+   "days": [
+    {
+     "date": "2026-10-26",
+     "weekday": "Thứ 2",
+     "type": "Strength A",
+     "content": "Calf raise gối thẳng 3×12; soleus raise gối cong 3×12; tibialis raise 3×15; split squat 3×8/chân; side plank 2×30–45s",
+     "planned_km": 0,
+     "pace": "Không đau; kiểm soát chậm",
+     "rpe": "4–5",
+     "note": ""
+    },
+    {
+     "date": "2026-10-27",
+     "weekday": "Thứ 3",
+     "type": "Easy",
+     "content": "6K easy.",
+     "planned_km": 6,
+     "pace": "7:20–8:05/km",
+     "rpe": "2–3",
+     "note": ""
+    },
+    {
+     "date": "2026-10-28",
+     "weekday": "Thứ 4",
+     "type": "Strength B / Cross",
+     "content": "Single-leg calf raise 3×10; tibialis raise 3×15; step-down 3×8/chân; glute bridge 3×12; band lateral walk 3×12 bước/bên",
+     "planned_km": 0,
+     "pace": "Không tạo đau cẳng chân",
+     "rpe": "4–5",
+     "note": ""
+    },
+    {
+     "date": "2026-10-29",
+     "weekday": "Thứ 5",
+     "type": "Quality",
+     "content": "Tổng 7K. 5K benchmark: 1K WU + 5K mạnh có kiểm soát + 1K CD.",
+     "planned_km": 7,
+     "pace": "Theo block nhanh; phần còn lại easy",
+     "rpe": "5–7",
+     "note": ""
+    },
+    {
+     "date": "2026-10-30",
+     "weekday": "Thứ 6",
+     "type": "Nghỉ / Mobility",
+     "content": "Nghỉ. 8–12' mobility cổ chân + calf nhẹ.",
+     "planned_km": 0,
+     "pace": "Phục hồi",
+     "rpe": "1–2",
+     "note": ""
+    },
+    {
+     "date": "2026-10-31",
+     "weekday": "Thứ 7",
+     "type": "Recovery",
+     "content": "4K recovery rất nhẹ.",
+     "planned_km": 4,
+     "pace": "7:50–8:40/km hoặc chậm hơn",
+     "rpe": "2",
+     "note": ""
+    },
+    {
+     "date": "2026-11-01",
+     "weekday": "Chủ nhật",
+     "type": "Long Run",
+     "content": "11K long run easy.",
+     "planned_km": 11,
+     "pace": "7:15–8:00/km",
+     "rpe": "3–4",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "week": 11,
+   "phase": "Build",
+   "start": "2026-11-02",
+   "end": "2026-11-08",
+   "planned_km": 31,
+   "long_run_km": 12,
+   "main_workout": "5 × 800m @ 6:05–6:15/km, jog 400m.",
+   "days": [
+    {
+     "date": "2026-11-02",
+     "weekday": "Thứ 2",
+     "type": "Strength A",
+     "content": "Calf raise gối thẳng 3×12; soleus raise gối cong 3×12; tibialis raise 3×15; split squat 3×8/chân; side plank 2×30–45s",
+     "planned_km": 0,
+     "pace": "Không đau; kiểm soát chậm",
+     "rpe": "4–5",
+     "note": ""
+    },
+    {
+     "date": "2026-11-03",
+     "weekday": "Thứ 3",
+     "type": "Easy",
+     "content": "6K easy.",
+     "planned_km": 6,
+     "pace": "7:20–8:05/km",
+     "rpe": "2–3",
+     "note": ""
+    },
+    {
+     "date": "2026-11-04",
+     "weekday": "Thứ 4",
+     "type": "Strength B / Cross",
+     "content": "Single-leg calf raise 3×10; tibialis raise 3×15; step-down 3×8/chân; glute bridge 3×12; band lateral walk 3×12 bước/bên",
+     "planned_km": 0,
+     "pace": "Không tạo đau cẳng chân",
+     "rpe": "4–5",
+     "note": ""
+    },
+    {
+     "date": "2026-11-05",
+     "weekday": "Thứ 5",
+     "type": "Quality",
+     "content": "Tổng 8K. 5 × 800m @ 6:05–6:15/km, jog 400m.",
+     "planned_km": 8,
+     "pace": "Theo block nhanh; phần còn lại easy",
+     "rpe": "5–7",
+     "note": ""
+    },
+    {
+     "date": "2026-11-06",
+     "weekday": "Thứ 6",
+     "type": "Nghỉ / Mobility",
+     "content": "Nghỉ. 8–12' mobility cổ chân + calf nhẹ.",
+     "planned_km": 0,
+     "pace": "Phục hồi",
+     "rpe": "1–2",
+     "note": ""
+    },
+    {
+     "date": "2026-11-07",
+     "weekday": "Thứ 7",
+     "type": "Recovery",
+     "content": "5K recovery rất nhẹ.",
+     "planned_km": 5,
+     "pace": "7:50–8:40/km hoặc chậm hơn",
+     "rpe": "2",
+     "note": ""
+    },
+    {
+     "date": "2026-11-08",
+     "weekday": "Chủ nhật",
+     "type": "Long Run",
+     "content": "12K long run easy.",
+     "planned_km": 12,
+     "pace": "7:15–8:00/km",
+     "rpe": "3–4",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "week": 12,
+   "phase": "Build",
+   "start": "2026-11-09",
+   "end": "2026-11-15",
+   "planned_km": 33,
+   "long_run_km": 13,
+   "main_workout": "3 × 2K @ 6:25–6:35/km, jog 500m.",
+   "days": [
+    {
+     "date": "2026-11-09",
+     "weekday": "Thứ 2",
+     "type": "Strength A",
+     "content": "Calf raise gối thẳng 3×12; soleus raise gối cong 3×12; tibialis raise 3×15; split squat 3×8/chân; side plank 2×30–45s",
+     "planned_km": 0,
+     "pace": "Không đau; kiểm soát chậm",
+     "rpe": "4–5",
+     "note": ""
+    },
+    {
+     "date": "2026-11-10",
+     "weekday": "Thứ 3",
+     "type": "Easy",
+     "content": "7K easy.",
+     "planned_km": 7,
+     "pace": "7:20–8:05/km",
+     "rpe": "2–3",
+     "note": ""
+    },
+    {
+     "date": "2026-11-11",
+     "weekday": "Thứ 4",
+     "type": "Strength B / Cross",
+     "content": "Single-leg calf raise 3×10; tibialis raise 3×15; step-down 3×8/chân; glute bridge 3×12; band lateral walk 3×12 bước/bên",
+     "planned_km": 0,
+     "pace": "Không tạo đau cẳng chân",
+     "rpe": "4–5",
+     "note": ""
+    },
+    {
+     "date": "2026-11-12",
+     "weekday": "Thứ 5",
+     "type": "Quality",
+     "content": "Tổng 8K. 3 × 2K @ 6:25–6:35/km, jog 500m.",
+     "planned_km": 8,
+     "pace": "Theo block nhanh; phần còn lại easy",
+     "rpe": "5–7",
+     "note": ""
+    },
+    {
+     "date": "2026-11-13",
+     "weekday": "Thứ 6",
+     "type": "Nghỉ / Mobility",
+     "content": "Nghỉ. 8–12' mobility cổ chân + calf nhẹ.",
+     "planned_km": 0,
+     "pace": "Phục hồi",
+     "rpe": "1–2",
+     "note": ""
+    },
+    {
+     "date": "2026-11-14",
+     "weekday": "Thứ 7",
+     "type": "Recovery",
+     "content": "5K recovery rất nhẹ.",
+     "planned_km": 5,
+     "pace": "7:50–8:40/km hoặc chậm hơn",
+     "rpe": "2",
+     "note": ""
+    },
+    {
+     "date": "2026-11-15",
+     "weekday": "Chủ nhật",
+     "type": "Long Run",
+     "content": "13K long run easy.",
+     "planned_km": 13,
+     "pace": "7:15–8:00/km",
+     "rpe": "3–4",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "week": 13,
+   "phase": "Cutback",
+   "start": "2026-11-16",
+   "end": "2026-11-22",
+   "planned_km": 27,
+   "long_run_km": 10,
+   "main_workout": "8 × 1' @ 6:00–6:15/km / 90s easy.",
+   "days": [
+    {
+     "date": "2026-11-16",
+     "weekday": "Thứ 2",
+     "type": "Strength A",
+     "content": "Calf raise gối thẳng 3×12; soleus raise gối cong 3×12; tibialis raise 3×15; split squat 3×8/chân; side plank 2×30–45s",
+     "planned_km": 0,
+     "pace": "Không đau; kiểm soát chậm",
+     "rpe": "4–5",
+     "note": ""
+    },
+    {
+     "date": "2026-11-17",
+     "weekday": "Thứ 3",
+     "type": "Easy",
+     "content": "6K easy.",
+     "planned_km": 6,
+     "pace": "7:20–8:05/km",
+     "rpe": "2–3",
+     "note": ""
+    },
+    {
+     "date": "2026-11-18",
+     "weekday": "Thứ 4",
+     "type": "Strength B / Cross",
+     "content": "Single-leg calf raise 3×10; tibialis raise 3×15; step-down 3×8/chân; glute bridge 3×12; band lateral walk 3×12 bước/bên",
+     "planned_km": 0,
+     "pace": "Không tạo đau cẳng chân",
+     "rpe": "4–5",
+     "note": ""
+    },
+    {
+     "date": "2026-11-19",
+     "weekday": "Thứ 5",
+     "type": "Quality",
+     "content": "Tổng 7K. 8 × 1' @ 6:00–6:15/km / 90s easy.",
+     "planned_km": 7,
+     "pace": "Theo block nhanh; phần còn lại easy",
+     "rpe": "5–7",
+     "note": ""
+    },
+    {
+     "date": "2026-11-20",
+     "weekday": "Thứ 6",
+     "type": "Nghỉ / Mobility",
+     "content": "Nghỉ. 8–12' mobility cổ chân + calf nhẹ.",
+     "planned_km": 0,
+     "pace": "Phục hồi",
+     "rpe": "1–2",
+     "note": ""
+    },
+    {
+     "date": "2026-11-21",
+     "weekday": "Thứ 7",
+     "type": "Recovery",
+     "content": "4K recovery rất nhẹ.",
+     "planned_km": 4,
+     "pace": "7:50–8:40/km hoặc chậm hơn",
+     "rpe": "2",
+     "note": ""
+    },
+    {
+     "date": "2026-11-22",
+     "weekday": "Chủ nhật",
+     "type": "Long Run",
+     "content": "10K long run easy.",
+     "planned_km": 10,
+     "pace": "7:15–8:00/km",
+     "rpe": "3–4",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "week": 14,
+   "phase": "HM Specific",
+   "start": "2026-11-23",
+   "end": "2026-11-29",
+   "planned_km": 34,
+   "long_run_km": 14,
+   "main_workout": "3 × 2K @ 6:24–6:30/km, 500m easy.",
+   "days": [
+    {
+     "date": "2026-11-23",
+     "weekday": "Thứ 2",
+     "type": "Strength A",
+     "content": "Calf raise gối thẳng 3×12; soleus raise gối cong 3×12; tibialis raise 3×15; split squat 3×8/chân; side plank 2×30–45s",
+     "planned_km": 0,
+     "pace": "Không đau; kiểm soát chậm",
+     "rpe": "4–5",
+     "note": ""
+    },
+    {
+     "date": "2026-11-24",
+     "weekday": "Thứ 3",
+     "type": "Easy",
+     "content": "7K easy.",
+     "planned_km": 7,
+     "pace": "7:20–8:05/km",
+     "rpe": "2–3",
+     "note": ""
+    },
+    {
+     "date": "2026-11-25",
+     "weekday": "Thứ 4",
+     "type": "Strength B / Cross",
+     "content": "Single-leg calf raise 3×10; tibialis raise 3×15; step-down 3×8/chân; glute bridge 3×12; band lateral walk 3×12 bước/bên",
+     "planned_km": 0,
+     "pace": "Không tạo đau cẳng chân",
+     "rpe": "4–5",
+     "note": ""
+    },
+    {
+     "date": "2026-11-26",
+     "weekday": "Thứ 5",
+     "type": "HM Specific",
+     "content": "Tổng 8K. 3 × 2K @ 6:24–6:30/km, 500m easy.",
+     "planned_km": 8,
+     "pace": "Theo bài HM/interval",
+     "rpe": "6–8",
+     "note": ""
+    },
+    {
+     "date": "2026-11-27",
+     "weekday": "Thứ 6",
+     "type": "Nghỉ / Mobility",
+     "content": "Nghỉ. 8–12' mobility cổ chân + calf nhẹ.",
+     "planned_km": 0,
+     "pace": "Phục hồi",
+     "rpe": "1–2",
+     "note": ""
+    },
+    {
+     "date": "2026-11-28",
+     "weekday": "Thứ 7",
+     "type": "Recovery",
+     "content": "5K recovery rất nhẹ.",
+     "planned_km": 5,
+     "pace": "7:50–8:40/km hoặc chậm hơn",
+     "rpe": "2",
+     "note": ""
+    },
+    {
+     "date": "2026-11-29",
+     "weekday": "Chủ nhật",
+     "type": "Long Run",
+     "content": "14K long run easy.",
+     "planned_km": 14,
+     "pace": "7:15–8:00/km",
+     "rpe": "3–4",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "week": 15,
+   "phase": "HM Specific",
+   "start": "2026-11-30",
+   "end": "2026-12-06",
+   "planned_km": 36,
+   "long_run_km": 15,
+   "main_workout": "5 × 1K @ 5:55–6:05/km, jog 400m.",
+   "days": [
+    {
+     "date": "2026-11-30",
+     "weekday": "Thứ 2",
+     "type": "Strength A",
+     "content": "Calf raise gối thẳng 3×12; soleus raise gối cong 3×12; tibialis raise 3×15; split squat 3×8/chân; side plank 2×30–45s",
+     "planned_km": 0,
+     "pace": "Không đau; kiểm soát chậm",
+     "rpe": "4–5",
+     "note": ""
+    },
+    {
+     "date": "2026-12-01",
+     "weekday": "Thứ 3",
+     "type": "Easy",
+     "content": "7K easy.",
+     "planned_km": 7,
+     "pace": "7:20–8:05/km",
+     "rpe": "2–3",
+     "note": ""
+    },
+    {
+     "date": "2026-12-02",
+     "weekday": "Thứ 4",
+     "type": "Strength B / Cross",
+     "content": "Single-leg calf raise 3×10; tibialis raise 3×15; step-down 3×8/chân; glute bridge 3×12; band lateral walk 3×12 bước/bên",
+     "planned_km": 0,
+     "pace": "Không tạo đau cẳng chân",
+     "rpe": "4–5",
+     "note": ""
+    },
+    {
+     "date": "2026-12-03",
+     "weekday": "Thứ 5",
+     "type": "HM Specific",
+     "content": "Tổng 9K. 5 × 1K @ 5:55–6:05/km, jog 400m.",
+     "planned_km": 9,
+     "pace": "Theo bài HM/interval",
+     "rpe": "6–8",
+     "note": ""
+    },
+    {
+     "date": "2026-12-04",
+     "weekday": "Thứ 6",
+     "type": "Nghỉ / Mobility",
+     "content": "Nghỉ. 8–12' mobility cổ chân + calf nhẹ.",
+     "planned_km": 0,
+     "pace": "Phục hồi",
+     "rpe": "1–2",
+     "note": ""
+    },
+    {
+     "date": "2026-12-05",
+     "weekday": "Thứ 7",
+     "type": "Recovery",
+     "content": "5K recovery rất nhẹ.",
+     "planned_km": 5,
+     "pace": "7:50–8:40/km hoặc chậm hơn",
+     "rpe": "2",
+     "note": ""
+    },
+    {
+     "date": "2026-12-06",
+     "weekday": "Chủ nhật",
+     "type": "Long Run",
+     "content": "15K long run easy.",
+     "planned_km": 15,
+     "pace": "7:15–8:00/km",
+     "rpe": "3–4",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "week": 16,
+   "phase": "HM Specific",
+   "start": "2026-12-07",
+   "end": "2026-12-13",
+   "planned_km": 39,
+   "long_run_km": 17,
+   "main_workout": "2K easy + 5K @ 6:24–6:30/km + 2K easy.",
+   "days": [
+    {
+     "date": "2026-12-07",
+     "weekday": "Thứ 2",
+     "type": "Strength A",
+     "content": "Calf raise gối thẳng 3×12; soleus raise gối cong 3×12; tibialis raise 3×15; split squat 3×8/chân; side plank 2×30–45s",
+     "planned_km": 0,
+     "pace": "Không đau; kiểm soát chậm",
+     "rpe": "4–5",
+     "note": ""
+    },
+    {
+     "date": "2026-12-08",
+     "weekday": "Thứ 3",
+     "type": "Easy",
+     "content": "8K easy.",
+     "planned_km": 8,
+     "pace": "7:20–8:05/km",
+     "rpe": "2–3",
+     "note": ""
+    },
+    {
+     "date": "2026-12-09",
+     "weekday": "Thứ 4",
+     "type": "Strength B / Cross",
+     "content": "Single-leg calf raise 3×10; tibialis raise 3×15; step-down 3×8/chân; glute bridge 3×12; band lateral walk 3×12 bước/bên",
+     "planned_km": 0,
+     "pace": "Không tạo đau cẳng chân",
+     "rpe": "4–5",
+     "note": ""
+    },
+    {
+     "date": "2026-12-10",
+     "weekday": "Thứ 5",
+     "type": "HM Specific",
+     "content": "Tổng 9K. 2K easy + 5K @ 6:24–6:30/km + 2K easy.",
+     "planned_km": 9,
+     "pace": "Theo bài HM/interval",
+     "rpe": "6–8",
+     "note": ""
+    },
+    {
+     "date": "2026-12-11",
+     "weekday": "Thứ 6",
+     "type": "Nghỉ / Mobility",
+     "content": "Nghỉ. 8–12' mobility cổ chân + calf nhẹ.",
+     "planned_km": 0,
+     "pace": "Phục hồi",
+     "rpe": "1–2",
+     "note": ""
+    },
+    {
+     "date": "2026-12-12",
+     "weekday": "Thứ 7",
+     "type": "Recovery",
+     "content": "5K recovery rất nhẹ.",
+     "planned_km": 5,
+     "pace": "7:50–8:40/km hoặc chậm hơn",
+     "rpe": "2",
+     "note": ""
+    },
+    {
+     "date": "2026-12-13",
+     "weekday": "Chủ nhật",
+     "type": "Long Run",
+     "content": "17K long run easy.",
+     "planned_km": 17,
+     "pace": "7:15–8:00/km",
+     "rpe": "3–4",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "week": 17,
+   "phase": "Checkpoint + Cutback",
+   "start": "2026-12-14",
+   "end": "2026-12-20",
+   "planned_km": 32,
+   "long_run_km": 10,
+   "main_workout": "10K tune-up: 1K WU + 10K test + 1K CD.",
+   "days": [
+    {
+     "date": "2026-12-14",
+     "weekday": "Thứ 2",
+     "type": "Strength A",
+     "content": "Calf raise gối thẳng 3×12; soleus raise gối cong 3×12; tibialis raise 3×15; split squat 3×8/chân; side plank 2×30–45s",
+     "planned_km": 0,
+     "pace": "Không đau; kiểm soát chậm",
+     "rpe": "4–5",
+     "note": ""
+    },
+    {
+     "date": "2026-12-15",
+     "weekday": "Thứ 3",
+     "type": "Easy",
+     "content": "6K easy.",
+     "planned_km": 6,
+     "pace": "7:20–8:05/km",
+     "rpe": "2–3",
+     "note": ""
+    },
+    {
+     "date": "2026-12-16",
+     "weekday": "Thứ 4",
+     "type": "Strength B / Cross",
+     "content": "Single-leg calf raise 3×10; tibialis raise 3×15; step-down 3×8/chân; glute bridge 3×12; band lateral walk 3×12 bước/bên",
+     "planned_km": 0,
+     "pace": "Không tạo đau cẳng chân",
+     "rpe": "4–5",
+     "note": ""
+    },
+    {
+     "date": "2026-12-17",
+     "weekday": "Thứ 5",
+     "type": "HM Specific",
+     "content": "Tổng 12K. 10K tune-up: 1K WU + 10K test + 1K CD.",
+     "planned_km": 12,
+     "pace": "Theo bài HM/interval",
+     "rpe": "6–8",
+     "note": ""
+    },
+    {
+     "date": "2026-12-18",
+     "weekday": "Thứ 6",
+     "type": "Nghỉ / Mobility",
+     "content": "Nghỉ. 8–12' mobility cổ chân + calf nhẹ.",
+     "planned_km": 0,
+     "pace": "Phục hồi",
+     "rpe": "1–2",
+     "note": ""
+    },
+    {
+     "date": "2026-12-19",
+     "weekday": "Thứ 7",
+     "type": "Recovery",
+     "content": "4K recovery rất nhẹ.",
+     "planned_km": 4,
+     "pace": "7:50–8:40/km hoặc chậm hơn",
+     "rpe": "2",
+     "note": ""
+    },
+    {
+     "date": "2026-12-20",
+     "weekday": "Chủ nhật",
+     "type": "Long Run",
+     "content": "10K long run easy.",
+     "planned_km": 10,
+     "pace": "7:15–8:00/km",
+     "rpe": "3–4",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "week": 18,
+   "phase": "Peak",
+   "start": "2026-12-21",
+   "end": "2026-12-27",
+   "planned_km": 41,
+   "long_run_km": 18,
+   "main_workout": "2K easy + 6K @ 6:22–6:28/km + 2K easy.",
+   "days": [
+    {
+     "date": "2026-12-21",
+     "weekday": "Thứ 2",
+     "type": "Strength A",
+     "content": "Calf raise gối thẳng 3×12; soleus raise gối cong 3×12; tibialis raise 3×15; split squat 3×8/chân; side plank 2×30–45s",
+     "planned_km": 0,
+     "pace": "Không đau; kiểm soát chậm",
+     "rpe": "4–5",
+     "note": ""
+    },
+    {
+     "date": "2026-12-22",
+     "weekday": "Thứ 3",
+     "type": "Easy",
+     "content": "8K easy.",
+     "planned_km": 8,
+     "pace": "7:20–8:05/km",
+     "rpe": "2–3",
+     "note": ""
+    },
+    {
+     "date": "2026-12-23",
+     "weekday": "Thứ 4",
+     "type": "Strength B / Cross",
+     "content": "Single-leg calf raise 3×10; tibialis raise 3×15; step-down 3×8/chân; glute bridge 3×12; band lateral walk 3×12 bước/bên",
+     "planned_km": 0,
+     "pace": "Không tạo đau cẳng chân",
+     "rpe": "4–5",
+     "note": ""
+    },
+    {
+     "date": "2026-12-24",
+     "weekday": "Thứ 5",
+     "type": "HM Specific",
+     "content": "Tổng 10K. 2K easy + 6K @ 6:22–6:28/km + 2K easy.",
+     "planned_km": 10,
+     "pace": "Theo bài HM/interval",
+     "rpe": "6–8",
+     "note": ""
+    },
+    {
+     "date": "2026-12-25",
+     "weekday": "Thứ 6",
+     "type": "Nghỉ / Mobility",
+     "content": "Nghỉ. 8–12' mobility cổ chân + calf nhẹ.",
+     "planned_km": 0,
+     "pace": "Phục hồi",
+     "rpe": "1–2",
+     "note": ""
+    },
+    {
+     "date": "2026-12-26",
+     "weekday": "Thứ 7",
+     "type": "Recovery",
+     "content": "5K recovery rất nhẹ.",
+     "planned_km": 5,
+     "pace": "7:50–8:40/km hoặc chậm hơn",
+     "rpe": "2",
+     "note": ""
+    },
+    {
+     "date": "2026-12-27",
+     "weekday": "Chủ nhật",
+     "type": "Long Run",
+     "content": "18K long run easy.",
+     "planned_km": 18,
+     "pace": "7:15–8:00/km",
+     "rpe": "3–4",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "week": 19,
+   "phase": "Peak / Specific",
+   "start": "2026-12-28",
+   "end": "2027-01-03",
+   "planned_km": 38,
+   "long_run_km": 16,
+   "main_workout": "2K easy + 3 × 2K @ 6:18–6:24/km (500m easy) + CD.",
+   "days": [
+    {
+     "date": "2026-12-28",
+     "weekday": "Thứ 2",
+     "type": "Strength A",
+     "content": "Calf raise gối thẳng 3×12; soleus raise gối cong 3×12; tibialis raise 3×15; split squat 3×8/chân; side plank 2×30–45s",
+     "planned_km": 0,
+     "pace": "Không đau; kiểm soát chậm",
+     "rpe": "4–5",
+     "note": ""
+    },
+    {
+     "date": "2026-12-29",
+     "weekday": "Thứ 3",
+     "type": "Easy",
+     "content": "7K easy.",
+     "planned_km": 7,
+     "pace": "7:20–8:05/km",
+     "rpe": "2–3",
+     "note": ""
+    },
+    {
+     "date": "2026-12-30",
+     "weekday": "Thứ 4",
+     "type": "Strength B / Cross",
+     "content": "Single-leg calf raise 3×10; tibialis raise 3×15; step-down 3×8/chân; glute bridge 3×12; band lateral walk 3×12 bước/bên",
+     "planned_km": 0,
+     "pace": "Không tạo đau cẳng chân",
+     "rpe": "4–5",
+     "note": ""
+    },
+    {
+     "date": "2026-12-31",
+     "weekday": "Thứ 5",
+     "type": "HM Specific",
+     "content": "Tổng 10K. 2K easy + 3 × 2K @ 6:18–6:24/km (500m easy) + CD.",
+     "planned_km": 10,
+     "pace": "Theo bài HM/interval",
+     "rpe": "6–8",
+     "note": ""
+    },
+    {
+     "date": "2027-01-01",
+     "weekday": "Thứ 6",
+     "type": "Nghỉ / Mobility",
+     "content": "Nghỉ. 8–12' mobility cổ chân + calf nhẹ.",
+     "planned_km": 0,
+     "pace": "Phục hồi",
+     "rpe": "1–2",
+     "note": ""
+    },
+    {
+     "date": "2027-01-02",
+     "weekday": "Thứ 7",
+     "type": "Recovery",
+     "content": "5K recovery rất nhẹ.",
+     "planned_km": 5,
+     "pace": "7:50–8:40/km hoặc chậm hơn",
+     "rpe": "2",
+     "note": ""
+    },
+    {
+     "date": "2027-01-03",
+     "weekday": "Chủ nhật",
+     "type": "Long Run",
+     "content": "16K long run easy.",
+     "planned_km": 16,
+     "pace": "7:15–8:00/km",
+     "rpe": "3–4",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "week": 20,
+   "phase": "Taper",
+   "start": "2027-01-04",
+   "end": "2027-01-10",
+   "planned_km": 28,
+   "long_run_km": 11,
+   "main_workout": "2K easy + 3K @ HM pace + 2K easy.",
+   "days": [
+    {
+     "date": "2027-01-04",
+     "weekday": "Thứ 2",
+     "type": "Strength A",
+     "content": "Calf raise gối thẳng 3×12; soleus raise gối cong 3×12; tibialis raise 3×15; split squat 3×8/chân; side plank 2×30–45s",
+     "planned_km": 0,
+     "pace": "Không đau; kiểm soát chậm",
+     "rpe": "4–5",
+     "note": ""
+    },
+    {
+     "date": "2027-01-05",
+     "weekday": "Thứ 3",
+     "type": "Easy",
+     "content": "6K easy.",
+     "planned_km": 6,
+     "pace": "7:20–8:05/km",
+     "rpe": "2–3",
+     "note": ""
+    },
+    {
+     "date": "2027-01-06",
+     "weekday": "Thứ 4",
+     "type": "Strength B / Cross",
+     "content": "Single-leg calf raise 3×10; tibialis raise 3×15; step-down 3×8/chân; glute bridge 3×12; band lateral walk 3×12 bước/bên",
+     "planned_km": 0,
+     "pace": "Không tạo đau cẳng chân",
+     "rpe": "4–5",
+     "note": ""
+    },
+    {
+     "date": "2027-01-07",
+     "weekday": "Thứ 5",
+     "type": "HM Specific",
+     "content": "Tổng 7K. 2K easy + 3K @ HM pace + 2K easy.",
+     "planned_km": 7,
+     "pace": "Theo bài HM/interval",
+     "rpe": "6–8",
+     "note": ""
+    },
+    {
+     "date": "2027-01-08",
+     "weekday": "Thứ 6",
+     "type": "Nghỉ / Mobility",
+     "content": "Nghỉ. 8–12' mobility cổ chân + calf nhẹ.",
+     "planned_km": 0,
+     "pace": "Phục hồi",
+     "rpe": "1–2",
+     "note": ""
+    },
+    {
+     "date": "2027-01-09",
+     "weekday": "Thứ 7",
+     "type": "Recovery",
+     "content": "4K recovery rất nhẹ.",
+     "planned_km": 4,
+     "pace": "7:50–8:40/km hoặc chậm hơn",
+     "rpe": "2",
+     "note": ""
+    },
+    {
+     "date": "2027-01-10",
+     "weekday": "Chủ nhật",
+     "type": "Long Run",
+     "content": "11K long run easy.",
+     "planned_km": 11,
+     "pace": "7:15–8:00/km",
+     "rpe": "3–4",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "week": 21,
+   "phase": "Race Week",
+   "start": "2027-01-11",
+   "end": "2027-01-17",
+   "planned_km": 30.1,
+   "long_run_km": 21.1,
+   "main_workout": "Thu: 4K easy + 4 × 20s strides; Sun: HCMC HM RACE.",
+   "days": [
+    {
+     "date": "2027-01-11",
+     "weekday": "Thứ 2",
+     "type": "Strength A",
+     "content": "Calf raise gối thẳng 3×12; soleus raise gối cong 3×12; tibialis raise 3×15; split squat 3×8/chân; side plank 2×30–45s",
+     "planned_km": 0,
+     "pace": "Không đau; kiểm soát chậm",
+     "rpe": "4–5",
+     "note": ""
+    },
+    {
+     "date": "2027-01-12",
+     "weekday": "Thứ 3",
+     "type": "Easy",
+     "content": "5K easy.",
+     "planned_km": 5,
+     "pace": "7:20–8:05/km",
+     "rpe": "2–3",
+     "note": ""
+    },
+    {
+     "date": "2027-01-13",
+     "weekday": "Thứ 4",
+     "type": "Strength B / Cross",
+     "content": "Single-leg calf raise 3×10; tibialis raise 3×15; step-down 3×8/chân; glute bridge 3×12; band lateral walk 3×12 bước/bên",
+     "planned_km": 0,
+     "pace": "Không tạo đau cẳng chân",
+     "rpe": "4–5",
+     "note": ""
+    },
+    {
+     "date": "2027-01-14",
+     "weekday": "Thứ 5",
+     "type": "Easy + Strides",
+     "content": "4K. Thu: 4K easy + 4 × 20s strides; Sun: HCMC HM RACE.",
+     "planned_km": 4,
+     "pace": "7:20–8:05/km",
+     "rpe": "3",
+     "note": ""
+    },
+    {
+     "date": "2027-01-15",
+     "weekday": "Thứ 6",
+     "type": "Nghỉ / Mobility",
+     "content": "Nghỉ. 8–12' mobility cổ chân + calf nhẹ.",
+     "planned_km": 0,
+     "pace": "Phục hồi",
+     "rpe": "1–2",
+     "note": ""
+    },
+    {
+     "date": "2027-01-16",
+     "weekday": "Thứ 7",
+     "type": "Nghỉ",
+     "content": "Nghỉ, chuẩn bị race.",
+     "planned_km": 0,
+     "pace": "—",
+     "rpe": "1–2",
+     "note": ""
+    },
+    {
+     "date": "2027-01-17",
+     "weekday": "Chủ nhật",
+     "type": "RACE",
+     "content": "HCMC Half Marathon 21.1K — mục tiêu 2:15.",
+     "planned_km": 21.1,
+     "pace": "KM 1–5: 6:28–6:30; KM 6–16: 6:22–6:25; KM 17–21.1: giữ 6:20–6:25 nếu còn khỏe",
+     "rpe": "7→9",
+     "note": ""
+    }
+   ]
+  }
+ ],
+ "strength": [
+  {
+   "exercise": "Tuần 1 sau 15K",
+   "target": "Recovery",
+   "sets": "—",
+   "freq": "—",
+   "cue": "Không strength nặng; mobility nhẹ",
+   "progression": "Chỉ tăng khi không đau"
+  },
+  {
+   "exercise": "Standing calf raise",
+   "target": "Gastrocnemius",
+   "sets": "3×12",
+   "freq": "2–3x/tuần",
+   "cue": "Hạ gót chậm",
+   "progression": "Tiến tới single-leg"
+  },
+  {
+   "exercise": "Bent-knee soleus raise",
+   "target": "Soleus",
+   "sets": "3×12–15",
+   "freq": "2–3x/tuần",
+   "cue": "Gối cong",
+   "progression": "Tăng tải từ từ"
+  },
+  {
+   "exercise": "Tibialis raise",
+   "target": "Tibialis anterior",
+   "sets": "3×15–20",
+   "freq": "2–3x/tuần",
+   "cue": "Kiểm soát biên độ",
+   "progression": "Tăng rep trước tăng tải"
+  },
+  {
+   "exercise": "Split squat",
+   "target": "Hip/quads",
+   "sets": "3×8/chân",
+   "freq": "2x/tuần",
+   "cue": "Không sụp gối",
+   "progression": "Tăng tạ từ từ"
+  },
+  {
+   "exercise": "Step-down",
+   "target": "Kiểm soát chân đơn",
+   "sets": "3×8/chân",
+   "freq": "2x/tuần",
+   "cue": "Form ổn định",
+   "progression": "Tăng độ cao từ từ"
+  },
+  {
+   "exercise": "Band lateral walk",
+   "target": "Glute medius",
+   "sets": "3×12 bước/bên",
+   "freq": "2x/tuần",
+   "cue": "Pelvis ổn định",
+   "progression": "Band nặng hơn"
+  }
+ ],
+ "paces": [
+  {
+   "type": "Loại",
+   "pace": "Pace gợi ý",
+   "rpe": "RPE",
+   "purpose": "Mục đích",
+   "when": "Khi dùng",
+   "note": "Lưu ý"
+  },
+  {
+   "type": "Post-race recovery",
+   "pace": "Không ép pace",
+   "rpe": "1–2",
+   "purpose": "Hồi phục sau 15K",
+   "when": "Tuần 1",
+   "note": "Được phép bỏ chạy hoàn toàn nếu chân chưa ổn"
+  },
+  {
+   "type": "Recovery",
+   "pace": "7:50–8:40/km",
+   "rpe": "2",
+   "purpose": "Phục hồi",
+   "when": "Thứ 7",
+   "note": "Chậm hơn cũng được"
+  },
+  {
+   "type": "Easy",
+   "pace": "7:20–8:05/km",
+   "rpe": "2–3",
+   "purpose": "Aerobic",
+   "when": "Phần lớn mileage",
+   "note": "Nói chuyện được"
+  },
+  {
+   "type": "Long run",
+   "pace": "7:15–8:00/km",
+   "rpe": "3–4",
+   "purpose": "Durability",
+   "when": "Chủ nhật",
+   "note": "Không biến thành race"
+  },
+  {
+   "type": "HM Pace",
+   "pace": "~6:24/km",
+   "rpe": "6–7",
+   "purpose": "Race-specific",
+   "when": "Tuần 14+",
+   "note": "Chỉ dùng khi chân ổn"
+  },
+  {
+   "type": "Interval",
+   "pace": "~5:55–6:15/km",
+   "rpe": "7–8",
+   "purpose": "Economy",
+   "when": "Tuần 11+",
+   "note": "Không sprint"
+  }
+ ],
+ "sources": [
+  {
+   "name": "AAOS — Shin Splints",
+   "applies": "Quay lại chạy sau khi hết đau; tăng dần tải; dừng nếu đau tái phát.",
+   "url": "https://orthoinfo.aaos.org/en/diseases--conditions/shin-splints/"
+  },
+  {
+   "name": "AAOS — Foot & Ankle Conditioning",
+   "applies": "Strength lower leg/foot/ankle.",
+   "url": "https://orthoinfo.aaos.org/en/recovery/foot-and-ankle-conditioning-program/"
+  },
+  {
+   "name": "Brigham and Women's — Return to Running",
+   "applies": "Khung quay lại chạy tăng dần sau chấn thương.",
+   "url": "https://www.brighamandwomens.org/assets/bwh/patients-and-families/rehabilitation-services/pdfs/le-running-injury-prevention-tips-and-return-to-running-program-bwh.pdf"
+  }
+ ]
+}
+</script>
+<script>
+const DATA = JSON.parse(document.getElementById('plan-data').textContent);
+const META = DATA.meta;
+const WEEKS = DATA.weeks;
+
+function fmtDate(iso){ const [y,m,d]=iso.split('-'); return `${d}/${m}/${y}`; }
+function daysBetween(a,b){ return Math.round((new Date(b)-new Date(a))/86400000); }
+
+// ---------- HERO STATS ----------
+const today = new Date().toISOString().slice(0,10);
+const ref = today < META.start ? META.start : today;
+const daysLeft = daysBetween(ref, META.race_date);
+document.getElementById('statRow').innerHTML = [
+  {label:'Giải trước plan', value:META.pre_race},
+  {label:'Bắt đầu HM plan', value:fmtDate(META.start)},
+  {label:'Ngày thi đấu', value:fmtDate(META.race_date), hl:true},
+  {label:'10km hiện tại', value:META.current_10k},
+  {label:'Mục tiêu', value:'2:15:00', hl:true},
+  {label:'HM pace', value:META.goal_pace},
+  {label:'Còn lại', value:daysLeft+' ngày'},
+].map(s=>`<div class="stat ${s.hl?'highlight':''}"><div class="label">${s.label}</div><div class="value">${s.value}</div></div>`).join('');
+
+// ---------- USAGE NOTE ----------
+document.getElementById('usageNote').innerHTML = `<b>Cách dùng giải 15K ngày 23/08:</b> ${META.usage_note}`;
+
+// ---------- CHECKPOINTS ----------
+document.getElementById('cpGrid').innerHTML = META.checkpoints.map(cp=>`
+  <div class="cp-card">
+    <div class="cp-name">${cp.name}</div>
+    <div class="cp-row"><span class="tag tag-good">TỐT</span><span>${cp.good}</span></div>
+    <div class="cp-row"><span class="tag tag-warn">THẬN TRỌNG</span><span>${cp.caution}</span></div>
+    <div class="cp-action">${cp.action}</div>
+  </div>
+`).join('');
+
+// ---------- PHASE STRIP ----------
+const phaseOrder = [];
+WEEKS.forEach(w=>{
+  const last = phaseOrder[phaseOrder.length-1];
+  if(!last || last.name!==w.phase) phaseOrder.push({name:w.phase, from:w.week, to:w.week});
+  else last.to = w.week;
+});
+function intensityColor(t){
+  const c1=[242,169,59], c2=[193,62,42];
+  const r=Math.round(c1[0]+(c2[0]-c1[0])*t), g=Math.round(c1[1]+(c2[1]-c1[1])*t), b=Math.round(c1[2]+(c2[2]-c1[2])*t);
+  return `rgb(${r},${g},${b})`;
+}
+const maxKm = Math.max(...WEEKS.map(w=>w.planned_km));
+const minKm = Math.min(...WEEKS.map(w=>w.planned_km));
+document.getElementById('phaseStrip').innerHTML = phaseOrder.map(p=>{
+  const avgKm = WEEKS.filter(w=>w.week>=p.from && w.week<=p.to).reduce((a,w)=>a+w.planned_km,0)/(p.to-p.from+1);
+  const t = (avgKm-minKm)/(maxKm-minKm||1);
+  return `<div class="phase-chip"><div class="bar" style="background:${intensityColor(t)}"></div><div class="weeks">TUẦN ${p.from}${p.to>p.from?'–'+p.to:''}</div><div class="name">${p.name}</div></div>`;
+}).join('');
+
+// ---------- CHART ----------
+document.getElementById('chartTitle').textContent = `${WEEKS.reduce((a,w)=>a+w.planned_km,0).toFixed(1)}km trải trên ${WEEKS.length} tuần`;
+const svg = document.getElementById('volchart');
+const tooltip = document.getElementById('tooltip');
+const svgW=1000, svgH=340, padL=34, padR=10, padT=20, padB=34;
+const chartW = svgW-padL-padR, chartH = svgH-padT-padB;
+const n = WEEKS.length, barGap=6;
+const barW = (chartW-barGap*(n-1))/n;
+function y(km){ return padT + chartH - (km/maxKm)*chartH; }
+let parts=[];
+[0,10,20,30,40].forEach(gv=>{
+  if(gv>maxKm+2) return;
+  const yy=y(gv);
+  parts.push(`<line x1="${padL}" y1="${yy}" x2="${svgW-padR}" y2="${yy}" stroke="#E4DFD2" stroke-width="1"/>`);
+  parts.push(`<text x="${padL-8}" y="${yy+3}" font-family="Space Mono" font-size="9" fill="#9C9688" text-anchor="end">${gv}</text>`);
+});
+WEEKS.forEach((w,i)=>{
+  const x = padL+i*(barW+barGap);
+  const t = (w.planned_km-minKm)/(maxKm-minKm||1);
+  const color = intensityColor(t);
+  const yy = y(w.planned_km);
+  const barH = chartH-(yy-padT);
+  const isCutback = /cutback/i.test(w.phase);
+  const dash = isCutback ? `stroke="${color}" stroke-width="1.5" stroke-dasharray="3,2" fill="${color}" fill-opacity="0.55"` : `fill="${color}"`;
+  parts.push(`<rect class="bar" data-i="${i}" x="${x}" y="${yy}" width="${barW}" height="${barH}" rx="2" ${dash} style="cursor:pointer"/>`);
+  if(w.long_run_km>0){
+    const lrY = y(Math.min(w.long_run_km, w.planned_km));
+    parts.push(`<circle cx="${x+barW/2}" cy="${lrY}" r="2.6" fill="#3F8F5F" stroke="white" stroke-width="1"/>`);
+  }
+  if(w.week%2===1 || w.week===n){
+    parts.push(`<text x="${x+barW/2}" y="${svgH-14}" font-family="Space Mono" font-size="9" fill="#9C9688" text-anchor="middle">${w.week}</text>`);
+  }
+});
+parts.push(`<text x="${padL}" y="${svgH-2}" font-family="Space Mono" font-size="9" fill="#726B5E">Tuần →</text>`);
+svg.innerHTML = parts.join('');
+svg.querySelectorAll('.bar').forEach(el=>{
+  el.addEventListener('mousemove',(e)=>{
+    const w = WEEKS[+el.dataset.i];
+    tooltip.innerHTML = `<b>Tuần ${w.week}</b> · ${fmtDate(w.start)}–${fmtDate(w.end)}<br>${w.phase}<br>Tổng: ${w.planned_km}km · LR: ${w.long_run_km}km<br>${w.main_workout}`;
+    tooltip.style.opacity=1;
+    const rect = svg.getBoundingClientRect();
+    tooltip.style.left = (e.clientX-rect.left+14)+'px';
+    tooltip.style.top = (e.clientY-rect.top-10)+'px';
+  });
+  el.addEventListener('mouseleave',()=>{tooltip.style.opacity=0;});
+});
+
+// ---------- RACE SPLIT STRATEGY ----------
+const splits = [
+  {label:'KM 1–5', pace:'6:28–6:30/km', frac:5/21.1, color:'#3B6EA0'},
+  {label:'KM 6–16', pace:'6:22–6:25/km', frac:11/21.1, color:'#F2A93B'},
+  {label:'KM 17–21.1', pace:'6:20–6:25/km (nếu còn khỏe)', frac:5.1/21.1, color:'#C13E2A'},
+];
+document.getElementById('splitBar').innerHTML = splits.map(s=>`
+  <div class="split-seg" style="flex:${s.frac};background:${s.color}">
+    <span>${s.label}</span><span class="r">${s.pace}</span>
+  </div>
+`).join('');
+
+// ---------- PACE TABLE ----------
+const paceRows = DATA.paces.map(p=>`
+  <tr>
+    <td><b>${p.type}</b></td>
+    <td class="pace-val">${p.pace}</td>
+    <td>${p.rpe}</td>
+    <td>${p.purpose}</td>
+    <td>${p.when}</td>
+    <td style="color:var(--muted);font-size:12px;">${p.note}</td>
+  </tr>`).join('');
+document.getElementById('paceTable').innerHTML = `
+  <thead><tr><th>Loại</th><th>Pace</th><th>RPE</th><th>Mục đích</th><th>Khi dùng</th><th>Lưu ý</th></tr></thead>
+  <tbody>${paceRows}</tbody>`;
+
+// ---------- STRENGTH EXERCISES ----------
+document.getElementById('exerciseGrid').innerHTML = DATA.strength.map(ex=>`
+  <div class="ex-item">
+    <div class="t">${ex.exercise}</div>
+    <div class="meta">${ex.sets} · ${ex.freq}</div>
+    <div class="d"><b>${ex.target}</b> — ${ex.cue}<br>Tiến triển: ${ex.progression}</div>
+  </div>
+`).join('');
+
+// ---------- SOURCES ----------
+document.getElementById('sourceList').innerHTML = DATA.sources.map(s=>`
+  <div class="source-item">
+    <div class="name">${s.name}</div>
+    <div class="applies">${s.applies}</div>
+    <a href="${s.url}" target="_blank" rel="noopener">${s.url}</a>
+  </div>
+`).join('');
+
+// ---------- WEEK ACCORDION ----------
+const weekList = document.getElementById('weekList');
+weekList.innerHTML = WEEKS.map((w,i)=>`
+  <div class="week-item" id="week-${w.week}">
+    <div class="week-head" data-i="${i}">
+      <div class="wk">W${String(w.week).padStart(2,'0')}</div>
+      <div class="ph">${w.phase}<span class="dates">${fmtDate(w.start)} – ${fmtDate(w.end)}</span></div>
+      <div class="km">${w.planned_km} km<small>LR ${w.long_run_km}km</small></div>
+      <div class="chev">▾</div>
+    </div>
+    <div class="week-body">
+      <div class="week-body-inner">
+        <div class="main-line"><b>Bài chính:</b> ${w.main_workout}</div>
+        ${w.days.map(d=>`
+          <div class="day-row ${d.type==='Long Run'?'lr':''} ${d.type==='RACE'?'race':''}">
+            <div class="dt">${d.weekday}<br>${fmtDate(d.date)}</div>
+            <div class="ses">${d.type}</div>
+            <div class="det">${d.content}<span class="pace">${d.pace}${d.rpe?' · RPE '+d.rpe:''}</span>${d.note?'<span class="note">'+d.note+'</span>':''}</div>
+            <div class="kmv">${d.planned_km>0?d.planned_km+'km':'—'}</div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  </div>
+`).join('');
+weekList.querySelectorAll('.week-head').forEach(el=>{
+  el.addEventListener('click', ()=> el.closest('.week-item').classList.toggle('open'));
+});
+document.getElementById('week-1').classList.add('open');
+
+// ---------- FOOTER ----------
+document.getElementById('footerNote').innerHTML = `<p><strong>Ưu tiên:</strong> ${META.priority}. Đây là kế hoạch tham khảo dựa trên các nguồn ở mục "Nguồn tham khảo", không thay thế tư vấn y tế/HLV chuyên môn — nếu đau ống đồng tái phát, lặp lại hoặc giảm tải tuần đó thay vì đi tiếp theo lịch cứng.</p>`;
+
+</script>
+</body>
+</html>
